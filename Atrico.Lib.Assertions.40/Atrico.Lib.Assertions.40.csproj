@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09E2E299-1CB1-42E1-B59D-DE939F25B380}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Atrico.Lib.Assertions</RootNamespace>
+    <AssemblyName>Atrico.Lib.Assertions</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Atrico.Lib.Assertions\Adapters\AsCollection\AtLeastOneAdapter.cs">
+      <Link>Adapters\AsCollection\AtLeastOneAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Adapters\AsCollection\CountAdapter.cs">
+      <Link>Adapters\AsCollection\CountAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Adapters\AsCollection\EveryOneAdapter.cs">
+      <Link>Adapters\AsCollection\EveryOneAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Adapters\HasAdaptersBase.cs">
+      <Link>Adapters\HasAdaptersBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Adapters\IAdapter.cs">
+      <Link>Adapters\IAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Adapters\NameAdapter.cs">
+      <Link>Adapters\NameAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Adapters\NameDecorater.cs">
+      <Link>Adapters\NameDecorater.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Adapters\NotAdapter.cs">
+      <Link>Adapters\NotAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Assert.cs">
+      <Link>Assert.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\BetweenConstraint.cs">
+      <Link>Constraints\BetweenConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\ContainConstraint.cs">
+      <Link>Constraints\ContainConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\EqualToConstraint.cs">
+      <Link>Constraints\EqualToConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\EquivalentToConstraint.cs">
+      <Link>Constraints\EquivalentToConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\FalseConstraint.cs">
+      <Link>Constraints\FalseConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\GreaterThanConstraint.cs">
+      <Link>Constraints\GreaterThanConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\GreaterThanOrEqualToConstraint.cs">
+      <Link>Constraints\GreaterThanOrEqualToConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\InterfaceConstraint.cs">
+      <Link>Constraints\InterfaceConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\LessThanConstraint.cs">
+      <Link>Constraints\LessThanConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\LessThanOrEqualToConstraint.cs">
+      <Link>Constraints\LessThanOrEqualToConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\NullConstraint.cs">
+      <Link>Constraints\NullConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\PredicateConstraint.cs">
+      <Link>Constraints\PredicateConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\TrueConstraint.cs">
+      <Link>Constraints\TrueConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\TrueOrFalseConstraintBase.cs">
+      <Link>Constraints\TrueOrFalseConstraintBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Constraints\TypeOfConstraint.cs">
+      <Link>Constraints\TypeOfConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\IAssertConstraint.cs">
+      <Link>IAssertConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\IErrorMessage.cs">
+      <Link>IErrorMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\NamesByConvention\EverythingBefore.cs">
+      <Link>NamesByConvention\EverythingBefore.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\NamesByConvention\NameByConvention.cs">
+      <Link>NamesByConvention\NameByConvention.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Properties\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\AsCollection\AsCollectionConstraintProvider.cs">
+      <Link>Providers\AsCollection\AsCollectionConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\AsCollection\IAsCollectionConstraintProviders.cs">
+      <Link>Providers\AsCollection\IAsCollectionConstraintProviders.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\AsCollection\IAsCollectionDoesConstraintProvider.cs">
+      <Link>Providers\AsCollection\IAsCollectionDoesConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\AsCollection\IAsCollectionDoesWithNotConstraintProvider.cs">
+      <Link>Providers\AsCollection\IAsCollectionDoesWithNotConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\AsCollection\IAsCollectionIsConstraintProvider.cs">
+      <Link>Providers\AsCollection\IAsCollectionIsConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\AsCollection\IAsCollectionIsWithNotConstraintProvider.cs">
+      <Link>Providers\AsCollection\IAsCollectionIsWithNotConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\ConstraintProviders.cs">
+      <Link>Providers\ConstraintProviders.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Does\DoesConstraintProvider.cs">
+      <Link>Providers\Does\DoesConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Does\IDoesConstraintProvider.cs">
+      <Link>Providers\Does\IDoesConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Does\IDoesWithNotConstraintProvider.cs">
+      <Link>Providers\Does\IDoesWithNotConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Does\Implement\IImplementConstraintProvider.cs">
+      <Link>Providers\Does\Implement\IImplementConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Does\Implement\ImplementConstraintProvider.cs">
+      <Link>Providers\Does\Implement\ImplementConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Does\Satisfy\ISatisfyConstraintProvider.cs">
+      <Link>Providers\Does\Satisfy\ISatisfyConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Does\Satisfy\SatisfyConstraintProvider.cs">
+      <Link>Providers\Does\Satisfy\SatisfyConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\IConstraintProviders.cs">
+      <Link>Providers\IConstraintProviders.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\INotAdapterProvider.cs">
+      <Link>Providers\INotAdapterProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Is\IIsConstraintProvider.cs">
+      <Link>Providers\Is\IIsConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Is\IIsWithNotConstraintProvider.cs">
+      <Link>Providers\Is\IIsWithNotConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\Is\IsConstraintProvider.cs">
+      <Link>Providers\Is\IsConstraintProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\_Statics\AsCollection.cs">
+      <Link>Providers\_Statics\AsCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\_Statics\Does.cs">
+      <Link>Providers\_Statics\Does.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Providers\_Statics\Is.cs">
+      <Link>Providers\_Statics\Is.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\_Base\AssertConstraintBase.cs">
+      <Link>_Base\AssertConstraintBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\_Base\AssertConstraintBinaryBase.cs">
+      <Link>_Base\AssertConstraintBinaryBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\_Base\AssertConstraintUnaryBase.cs">
+      <Link>_Base\AssertConstraintUnaryBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\_Base\ConstraintProviderBase.cs">
+      <Link>_Base\ConstraintProviderBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\_Base\ConstraintProviderHelper.cs">
+      <Link>_Base\ConstraintProviderHelper.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atrico.Lib.Assertions", "Atrico.Lib.Assertions\Atrico.Lib.Assertions.csproj", "{84481D71-F7F0-4C10-87EC-B5717C2860DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atrico.Lib.Assertions.Test", "Atrico.Lib.Assertions.Test\Atrico.Lib.Assertions.Test.csproj", "{D062D9A9-405A-43B4-AAB7-ED3C69025577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atrico.Lib.Assertions.40", "Atrico.Lib.Assertions.40\Atrico.Lib.Assertions.40.csproj", "{09E2E299-1CB1-42E1-B59D-DE939F25B380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atrico.Lib.Assertions.40.Test", "Atrico.Lib.Assertions.40.Test\Atrico.Lib.Assertions.40.Test.csproj", "{96FE60C5-61A7-4234-9A46-A1432C4DF58F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3BA95440-9DFA-4A2A-AD77-B8ECA13200D6}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84481D71-F7F0-4C10-87EC-B5717C2860DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84481D71-F7F0-4C10-87EC-B5717C2860DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84481D71-F7F0-4C10-87EC-B5717C2860DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84481D71-F7F0-4C10-87EC-B5717C2860DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D062D9A9-405A-43B4-AAB7-ED3C69025577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D062D9A9-405A-43B4-AAB7-ED3C69025577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D062D9A9-405A-43B4-AAB7-ED3C69025577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D062D9A9-405A-43B4-AAB7-ED3C69025577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E2E299-1CB1-42E1-B59D-DE939F25B380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E2E299-1CB1-42E1-B59D-DE939F25B380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E2E299-1CB1-42E1-B59D-DE939F25B380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E2E299-1CB1-42E1-B59D-DE939F25B380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96FE60C5-61A7-4234-9A46-A1432C4DF58F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96FE60C5-61A7-4234-9A46-A1432C4DF58F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96FE60C5-61A7-4234-9A46-A1432C4DF58F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96FE60C5-61A7-4234-9A46-A1432C4DF58F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
