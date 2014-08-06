@@ -183,7 +183,7 @@ namespace Atrico.Lib.Assertions
 			return Adapt(new EquivalentToConstraint<T>(expected));
 		}
 
-		public IAssertConstraint EquivalentTo<T>(IEnumerable<T> expected, Func<object, object, bool> predicate)
+		public IAssertConstraint EquivalentTo<T>(IEnumerable<T> expected, Func<object, T, bool> predicate)
 		{
 			return Adapt(new EquivalentToConstraint<T>(expected, predicate));
 		}

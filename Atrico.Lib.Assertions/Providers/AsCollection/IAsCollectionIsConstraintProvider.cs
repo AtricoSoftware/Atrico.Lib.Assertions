@@ -28,7 +28,7 @@ namespace Atrico.Lib.Assertions
 		/// <param name="expected">Expected value</param>
 		/// <param name="predicate">Custom comparison predicate</param>
 		/// <returns>Constraint</returns>
-		IAssertConstraint EquivalentTo<T>(IEnumerable<T> expected, Func<object, object, bool> predicate);
+		IAssertConstraint EquivalentTo<T>(IEnumerable<T> expected, Func<object, T, bool> predicate);
 
 		/// <summary>
 		///     Match lists ignoring order

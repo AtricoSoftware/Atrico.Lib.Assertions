@@ -12,7 +12,7 @@ namespace Atrico.Lib.Assertions
 	/// </summary>
 	internal class EquivalentToConstraint<T> : AssertConstraintBinaryBase<IEnumerable<T>>
 	{
-		private readonly Func<object, object, bool> _predicate;
+		private readonly Func<object, T, bool> _predicate;
 
 		/// <summary>
 		///     Constructor
@@ -37,7 +37,7 @@ namespace Atrico.Lib.Assertions
 		/// </summary>
 		/// <param name="expected">Expected value</param>
 		/// <param name="predicate">Custom comparison predicate</param>
-		public EquivalentToConstraint(IEnumerable<T> expected, Func<object, object, bool> predicate)
+		public EquivalentToConstraint(IEnumerable<T> expected, Func<object, T, bool> predicate)
 			: base(expected)
 		{
 			_predicate = predicate;
