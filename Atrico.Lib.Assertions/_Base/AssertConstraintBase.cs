@@ -2,7 +2,6 @@
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-
 namespace Atrico.Lib.Assertions
 {
 	/// <summary>
@@ -41,7 +40,7 @@ namespace Atrico.Lib.Assertions
 
 		protected virtual string ActualToString(object actual)
 		{
-			if (actual is IEnumerable)
+			if (actual is IEnumerable && !(actual is string))
 				return FormatCollection(actual as IEnumerable);
 			return actual.ToString();
 		}

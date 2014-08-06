@@ -3,6 +3,7 @@
  
 TODO
 ~~~~
+Pipelines
 asynchronous delay adapter (spinwait)
 better message for not constraints
  
@@ -14,4 +15,4 @@ Collection converts and checks type
 Type safe (assert(T, Constraint(T)) - using interfaces ???
 
 CONSTRAINTS
-
+Optional comparator for IsEqual, IsEquivalent

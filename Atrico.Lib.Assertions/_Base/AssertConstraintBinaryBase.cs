@@ -54,7 +54,7 @@ namespace Atrico.Lib.Assertions
 
 		protected virtual string ExpectedToString(TExpected expected)
 		{
-			if (expected is IEnumerable)
+			if (expected is IEnumerable && !(expected is string))
 				return FormatCollection(expected as IEnumerable);
 			return expected.ToString();
 		}

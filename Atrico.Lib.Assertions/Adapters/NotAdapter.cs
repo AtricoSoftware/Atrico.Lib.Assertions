@@ -1,3 +1,4 @@
+// ReSharper disable once CheckNamespace
 namespace Atrico.Lib.Assertions
 {
 	public class NotAdapter : IAdapter

@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
+    <Compile Include="TestCreateErrorMessage.cs" />
     <Compile Include="TestAsCollectionT.cs" />
     <Compile Include="TestAsCollection.cs" />
     <Compile Include="TestAsCollectionIsEqualtTo.cs" />

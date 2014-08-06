@@ -1,4 +1,5 @@
-﻿namespace Atrico.Lib.Assertions
+﻿// ReSharper disable once CheckNamespace
+namespace Atrico.Lib.Assertions
 {
 	/// <summary>
 	///     Container for constraints that use AsCollection (AsCollection.Count.Is.Equal, Ascollection.AtLeastOne)

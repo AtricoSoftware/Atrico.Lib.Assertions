@@ -1,5 +1,6 @@
 ﻿using System;
 
+// ReSharper disable once CheckNamespace
 namespace Atrico.Lib.Assertions
 {
 	public abstract class NameByConvention
