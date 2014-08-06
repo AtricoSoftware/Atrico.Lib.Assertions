@@ -65,7 +65,7 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="..\Atrico.Lib.Assertions.Test\Properties\CommonAssemblyInfo.cs">
-      <Link>CommonAssemblyInfo.cs</Link>
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="..\Atrico.Lib.Assertions.Test\TestAsCollection.cs">
       <Link>TestAsCollection.cs</Link>
@@ -141,6 +141,9 @@
     </Compile>
     <Compile Include="..\Atrico.Lib.Assertions.Test\TestIsTypeOfGeneric.cs">
       <Link>TestIsTypeOfGeneric.cs</Link>
+    </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions\Properties\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

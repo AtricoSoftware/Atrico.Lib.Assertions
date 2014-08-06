@@ -54,6 +54,7 @@
     <Compile Include="Adapters\NameAdapter.cs" />
     <Compile Include="Adapters\NameDecorater.cs" />
     <Compile Include="Adapters\NotAdapter.cs" />
+    <Compile Include="Properties\AssemblyVersion.cs" />
     <Compile Include="Assert.cs" />
     <Compile Include="Constraints\BetweenConstraint.cs" />
     <Compile Include="Constraints\ContainConstraint.cs" />
