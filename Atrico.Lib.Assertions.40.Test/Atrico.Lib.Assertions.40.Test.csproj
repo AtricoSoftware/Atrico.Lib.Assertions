@@ -109,6 +109,9 @@
     <Compile Include="..\Atrico.Lib.Assertions.Test\TestIsEqualTo.cs">
       <Link>TestIsEqualTo.cs</Link>
     </Compile>
+    <Compile Include="..\Atrico.Lib.Assertions.Test\TestIsEqualToCustomComparer.cs">
+      <Link>TestIsEqualToCustomComparer.cs</Link>
+    </Compile>
     <Compile Include="..\Atrico.Lib.Assertions.Test\TestIsFalse.cs">
       <Link>TestIsFalse.cs</Link>
     </Compile>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 // ReSharper disable once CheckNamespace
 
@@ -41,6 +42,28 @@ namespace Atrico.Lib.Assertions
 		public static IAssertConstraint EqualTo(object expected)
 		{
 			return new IsConstraintProvider().EqualTo(expected);
+		}
+
+		/// <summary>
+		///     Match values using Equals
+		/// </summary>
+		/// <param name="expected">Expected value</param>
+		/// <param name="predicate">Custom comparison predicate</param>
+		/// <returns>Constraint</returns>
+		public static IAssertConstraint EqualTo(object expected, Func<object, object, bool> predicate)
+		{
+			return new IsConstraintProvider().EqualTo(expected, predicate);
+		}
+
+		/// <summary>
+		///     Match values using Equals
+		/// </summary>
+		/// <param name="expected">Expected value</param>
+		/// <param name="comparer">Custom comparer</param>
+		/// <returns>Constraint</returns>
+		public static IAssertConstraint EqualTo(object expected, IComparer comparer)
+		{
+			return new IsConstraintProvider().EqualTo(expected, comparer);
 		}
 
 		/// <summary>

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,20 +12,42 @@ namespace Atrico.Lib.Assertions
 	/// </summary>
 	internal class EquivalentToConstraint<T> : AssertConstraintBinaryBase<IEnumerable<T>>
 	{
+		private readonly Func<object, object, bool> _predicate;
+
 		/// <summary>
 		///     Constructor
 		/// </summary>
 		/// <param name="expected">Expected value</param>
 		public EquivalentToConstraint(IEnumerable<T> expected)
+			: this(expected, (x,y)=>x.Equals(y))
+		{
+		}
+		/// <summary>
+		///     Constructor
+		/// </summary>
+		/// <param name="expected">Expected value</param>
+		/// <param name="comparer">Custom comparer</param>
+		public EquivalentToConstraint(IEnumerable<T> expected, IComparer comparer)
+			: this(expected, (x, y) => comparer.Compare(x, y) == 0)
+		{
+		}
+
+		/// <summary>
+		///     Constructor
+		/// </summary>
+		/// <param name="expected">Expected value</param>
+		/// <param name="predicate">Custom comparison predicate</param>
+		public EquivalentToConstraint(IEnumerable<T> expected, Func<object, object, bool> predicate)
 			: base(expected)
 		{
+			_predicate = predicate;
 		}
 
 		/// <summary>
 		///     Test this value
 		/// </summary>
 		/// <param name="expected">Expected value</param>
-		/// <param name="actual">Actual value</param>
+		/// <param name="actualObj">Actual value</param>
 		protected override bool Test(IEnumerable<T> expected, object actualObj)
 		{
 			var actual = actualObj as IEnumerable;
@@ -35,9 +58,14 @@ namespace Atrico.Lib.Assertions
 			return CompareCollections(expected.ToList(), actual.Cast<object>().ToList());
 		}
 
-		private static bool CompareCollections(ICollection<T> expected, ICollection<object> actual)
+		private bool CompareCollections(ICollection<T> expected, ICollection<object> actual)
 		{
-			return actual.Count == expected.Count && expected.All(item => actual.Remove(item));
+			if (actual.Count != expected.Count) return false;
+			foreach (var itemE in expected)
+			{
+				if (!actual.Any(itemA => _predicate(itemA, itemE))) return false;
+			}
+			return true;
 		}
 
 		public override string Name

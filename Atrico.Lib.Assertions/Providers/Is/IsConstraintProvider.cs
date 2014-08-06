@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
+
 namespace Atrico.Lib.Assertions
 {
 	/// <summary>
@@ -50,6 +52,28 @@ namespace Atrico.Lib.Assertions
 		public IAssertConstraint EqualTo(object expected)
 		{
 			return Adapt(new EqualToConstraint(expected));
+		}
+
+		/// <summary>
+		///     Match values using Equals
+		/// </summary>
+		/// <param name="expected">Expected value</param>
+		/// <param name="predicate">Custom comparison predicate</param>
+		/// <returns>Constraint</returns>
+		public IAssertConstraint EqualTo(object expected, Func<object, object, bool> predicate)
+		{
+			return Adapt(new EqualToConstraint(expected, predicate));
+		}
+
+		/// <summary>
+		///     Match values using Equals
+		/// </summary>
+		/// <param name="expected">Expected value</param>
+		/// <param name="comparer">Custom comparer</param>
+		/// <returns>Constraint</returns>
+		public IAssertConstraint EqualTo(object expected, IComparer comparer)
+		{
+			return Adapt(new EqualToConstraint(expected, comparer));
 		}
 
 		/// <summary>
@@ -157,6 +181,16 @@ namespace Atrico.Lib.Assertions
 		public IAssertConstraint EquivalentTo<T>(params T[] expected)
 		{
 			return Adapt(new EquivalentToConstraint<T>(expected));
+		}
+
+		public IAssertConstraint EquivalentTo<T>(IEnumerable<T> expected, Func<object, object, bool> predicate)
+		{
+			return Adapt(new EquivalentToConstraint<T>(expected, predicate));
+		}
+
+		public IAssertConstraint EquivalentTo<T>(IEnumerable<T> expected, IComparer comparer)
+		{
+			return Adapt(new EquivalentToConstraint<T>(expected, comparer));
 		}
 
 		#endregion

@@ -76,6 +76,8 @@
     <Compile Include="TestDoesSatisfyPredicate.cs" />
     <Compile Include="TestConstantAsserts.cs" />
     <Compile Include="TestIsBetween.cs" />
+    <Compile Include="TestAsCollectionIsEquivalentToCustomComparer.cs" />
+    <Compile Include="TestIsEqualToCustomComparer.cs" />
     <Compile Include="TestIsReferenceEqualTo.cs" />
     <Compile Include="TestIsEqualTo.cs" />
     <Compile Include="TestIsFalse.cs" />
