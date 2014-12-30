@@ -27,7 +27,7 @@ namespace Atrico.Lib.Assertions.Test
 		public void TestCreateErrorMessageArray()
 		{
 			// Arrange
-			var actual = new[] {1, 2, 3, 4};
+			var actual = new[] {1, 2, 3};
 			var expected = new[] {1, 2, 3, 4};
 			var constraint = AsCollection.Is.EqualTo(expected);
 
@@ -35,7 +35,7 @@ namespace Atrico.Lib.Assertions.Test
 			var msg = constraint.CreateErrorMessage(actual);
 
 			// Assert
-			var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>", FormatList(expected), FormatList(actual));
+			var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>: Missing<[4]>", FormatList(expected), FormatList(actual));
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, msg);
 		}
 
@@ -44,14 +44,14 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			var actual = new List<int> {1, 2, 3, 4};
-			var expected = new[] {1, 2, 3, 4};
+			var expected = new[] {1, 2, 3};
 			var constraint = AsCollection.Is.EqualTo(expected);
 
 			// Act
 			var msg = constraint.CreateErrorMessage(actual);
 
 			// Assert
-			var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>", FormatList(expected), FormatList(actual));
+			var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>: Extra<[4]>", FormatList(expected), FormatList(actual));
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, msg);
 		}
 

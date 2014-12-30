@@ -13,7 +13,7 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			const int actual = 1;
-			var expected = typeof(int);
+			var expected = typeof (int);
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, Is.TypeOf(expected)));
@@ -27,13 +27,13 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			const int actual = 1;
-			var expected = typeof(float);
+			var expected = typeof (float);
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, Is.TypeOf(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -41,7 +41,7 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			const int actual = 1;
-			var expected = typeof(float);
+			var expected = typeof (float);
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, Is.TypeOf(expected)));
@@ -57,7 +57,7 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			const int actual = 1;
-			var expected = typeof(float);
+			var expected = typeof (float);
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, Is.Not.TypeOf(expected)));
@@ -71,13 +71,13 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			const int actual = 1;
-			var expected = typeof(int);
+			var expected = typeof (int);
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, Is.Not.TypeOf(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -85,7 +85,7 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			const int actual = 1;
-			var expected = typeof(int);
+			var expected = typeof (int);
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, Is.Not.TypeOf(expected)));

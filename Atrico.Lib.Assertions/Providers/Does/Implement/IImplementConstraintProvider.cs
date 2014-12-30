@@ -4,7 +4,7 @@
 
 namespace Atrico.Lib.Assertions
 {
-	public interface IImplementConstraintProvider : IHasAdaptersBase
+	public interface IImplementConstraintProvider
 	{
 		/// <summary>
 		///     Implements an interface

@@ -7,7 +7,7 @@ namespace Atrico.Lib.Assertions
 	/// <summary>
 	///     Match values using Equals
 	/// </summary>
-	internal class TypeOfConstraint : AssertConstraintBinaryBase<Type>
+	internal class TypeOfConstraint : AssertConstraintBinaryBase<object, Type>
 	{
 		/// <summary>
 		///     Constructor
@@ -16,6 +16,11 @@ namespace Atrico.Lib.Assertions
 		public TypeOfConstraint(Type expected)
 			: base(expected)
 		{
+		}
+
+		protected override IErrorMessageProvider ErrorMessageProvider
+		{
+			get { return new TypeOfErrorMessageProvider(); }
 		}
 
 		/// <summary>
@@ -31,16 +36,6 @@ namespace Atrico.Lib.Assertions
 		public override string Name
 		{
 			get { return string.Format("TypeOf<{0}>", Expected); }
-		}
-
-		protected override string ActualToString(object actual)
-		{
-			return actual.GetType().ToString();
-		}
-
-		public override string CreateErrorMessage(object actual)
-		{
-			return CreateFormattedActual(actual);
 		}
 	}
 }

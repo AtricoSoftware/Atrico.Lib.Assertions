@@ -33,7 +33,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Is.LessThan(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -47,7 +47,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Is.LessThan(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -77,7 +77,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Is.Not.LessThan(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]

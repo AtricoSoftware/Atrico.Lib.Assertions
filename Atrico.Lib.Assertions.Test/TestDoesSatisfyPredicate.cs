@@ -31,7 +31,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Does.Satisfy.Predicate<int>(a => a > 0)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -72,7 +72,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Satisfy.Predicate<int>(a => a > 0)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]

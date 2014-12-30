@@ -27,13 +27,13 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			var actual = new[] {1, 2, 3, 4};
-			var expected = actual.Length+1;
+			var expected = actual.Length + 1;
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Count.Is.EqualTo(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -41,14 +41,14 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			var actual = new[] {1, 2, 3, 4};
-			var expected = actual.Length+1;
+			var expected = actual.Length + 1;
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Count.Is.EqualTo(expected)));
 
 			// Assert
 			var expectedMsg = string.Format("AsCollection.Count.Is.EqualTo failed. Expected:<{0}>, Actual:<{1}>", expected,
-				actual.Length);
+			                                actual.Length);
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}
@@ -58,7 +58,7 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			var actual = new[] {1, 2, 3, 4};
-			var expected = actual.Length+1;
+			var expected = actual.Length + 1;
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Count.Is.Not.EqualTo(expected)));
@@ -78,7 +78,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Count.Is.Not.EqualTo(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -93,7 +93,7 @@ namespace Atrico.Lib.Assertions.Test
 
 			// Assert
 			var expectedMsg = string.Format("AsCollection.Count.Is.Not.EqualTo failed. Expected:<{0}>, Actual:<{1}>", expected,
-				actual.Length);
+			                                actual.Length);
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}
@@ -117,13 +117,13 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			var actual = new[] {1, 2, 3, 4};
-			var expected = actual.Length+1;
+			var expected = actual.Length + 1;
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Count.Does.Satisfy.Predicate<int>(a => a == expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -131,7 +131,7 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			var actual = new[] {1, 2, 3, 4};
-			var expected = actual.Length+1;
+			var expected = actual.Length + 1;
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Count.Does.Satisfy.Predicate<int>(a => a == expected)));

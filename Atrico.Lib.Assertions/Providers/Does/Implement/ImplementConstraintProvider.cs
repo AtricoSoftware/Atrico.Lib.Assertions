@@ -12,19 +12,22 @@ namespace Atrico.Lib.Assertions
 		/// <summary>
 		///     Constructor
 		/// </summary>
-		public ImplementConstraintProvider(params IAdapter[] adapters)
-			: base(adapters)
+		/// <param name="decorator">Decorator from previous provider</param>
+		public ImplementConstraintProvider(DecoratorFunction decorator)
+			: base(decorator)
+
 		{
+			AppendDecorator(NameDecorator.Create("Implement"));
 		}
 
 		public IAssertConstraint Interface(Type expected)
 		{
-			return Adapt(new InterfaceConstraint(expected));
+			return Decorator(new InterfaceConstraint(expected));
 		}
 
 		public IAssertConstraint Interface<T>()
 		{
-			return Adapt(new InterfaceConstraint(typeof(T)));
+			return Decorator(new InterfaceConstraint(typeof (T)));
 		}
 	}
 }

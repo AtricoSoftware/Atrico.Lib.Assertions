@@ -7,7 +7,7 @@ namespace Atrico.Lib.Assertions
 	/// <summary>
 	///     Match values implementing interface
 	/// </summary>
-	internal class InterfaceConstraint : AssertConstraintBinaryBase<Type>
+	internal class InterfaceConstraint : AssertConstraintBinaryBase<object, Type>
 	{
 		/// <summary>
 		///     Constructor
@@ -16,6 +16,11 @@ namespace Atrico.Lib.Assertions
 		public InterfaceConstraint(Type expected)
 			: base(expected)
 		{
+		}
+
+		protected override IErrorMessageProvider ErrorMessageProvider
+		{
+			get { return new UnaryErrorMessageProvider(""); }
 		}
 
 		/// <summary>
@@ -31,11 +36,6 @@ namespace Atrico.Lib.Assertions
 		public override string Name
 		{
 			get { return string.Format("Interface<{0}>", Expected); }
-		}
-
-		public override string CreateErrorMessage(object actual)
-		{
-			return "";
 		}
 	}
 }

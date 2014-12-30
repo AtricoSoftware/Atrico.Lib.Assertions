@@ -64,9 +64,11 @@
     <Compile Include="..\Atrico.Lib.Assertions\Properties\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="Helpers\TestConversionBool.cs" />
+    <Compile Include="Helpers\TestConversionPod.cs" />
+    <Compile Include="Helpers\TestConversionObject.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
     <Compile Include="TestCreateErrorMessage.cs" />
-    <Compile Include="TestAsCollectionT.cs" />
     <Compile Include="TestAsCollection.cs" />
     <Compile Include="TestAsCollectionIsEqualtTo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +100,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Atrico.Lib.Common\Atrico.Lib.Common\Atrico.Lib.Common.csproj">
+      <Project>{983a29ac-8a3b-4d78-81d7-bcaf9b520877}</Project>
+      <Name>Atrico.Lib.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Atrico.Lib.Assertions\Atrico.Lib.Assertions.csproj">
       <Project>{84481d71-f7f0-4c10-87ec-b5717c2860de}</Project>
       <Name>Atrico.Lib.Assertions</Name>

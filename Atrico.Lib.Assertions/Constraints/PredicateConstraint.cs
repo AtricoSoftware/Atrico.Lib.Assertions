@@ -4,7 +4,7 @@
 
 namespace Atrico.Lib.Assertions
 {
-	public class PredicateConstraint<TActual> : AssertConstraintUnaryBase
+	public class PredicateConstraint<TActual> : AssertConstraintUnaryBase<TActual>
 	{
 		private readonly Func<TActual, bool> _predicate;
 
@@ -16,22 +16,21 @@ namespace Atrico.Lib.Assertions
 			_predicate = predicate;
 		}
 
-		public override bool Test(object actual)
+		protected override IErrorMessageProvider ErrorMessageProvider
+		{
+			get { return new UnaryErrorMessageProvider("Subject:<{0}>"); }
+		}
+
+		public override bool TestImpl(TActual actual)
 		{
 			try
 			{
-				var actualT = (TActual)actual;
-				return _predicate(actualT);
+				return _predicate(actual);
 			}
 			catch (Exception)
 			{
 				return false;
 			}
-		}
-
-		protected override string ActualFormat
-		{
-			get { return "Subject:<{0}>"; }
 		}
 	}
 }

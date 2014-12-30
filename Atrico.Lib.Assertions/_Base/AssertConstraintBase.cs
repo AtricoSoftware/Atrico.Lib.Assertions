@@ -1,24 +1,18 @@
-﻿using System.Collections;
-using System.Text;
+﻿using Atrico.Lib.Common;
+using Atrico.Lib.Common.NamesByConvention;
 
 // ReSharper disable once CheckNamespace
+
 namespace Atrico.Lib.Assertions
 {
 	/// <summary>
 	///     Interface for an assertion constraint with binary test
 	/// </summary>
-	public abstract class AssertConstraintBase : IAssertConstraint
+	public abstract class AssertConstraintBase<TActual> : IAssertConstraint
 	{
 		private readonly NameByConvention _name;
 
-		public virtual string Name
-		{
-			get { return _name; }
-		}
-
-		public abstract string CreateErrorMessage(object actual);
-
-		public abstract bool Test(object actual);
+		protected abstract IErrorMessageProvider ErrorMessageProvider { get; }
 
 		/// <summary>
 		///     Constructor
@@ -28,42 +22,26 @@ namespace Atrico.Lib.Assertions
 			_name = new EverythingBefore(GetType().Name, "Constraint");
 		}
 
-		protected string CreateFormattedActual(object actual)
+		public virtual string Name
 		{
-			return string.Format(ActualFormat, ActualToStringNullProtected(actual));
+			get { return _name; }
 		}
 
-		protected virtual string ActualFormat
+		public bool Test(object actual)
 		{
-			get { return "Actual:<{0}>"; }
+			return TestImpl((TActual) actual);
 		}
 
-		protected virtual string ActualToString(object actual)
+		public abstract bool TestImpl(TActual actual);
+
+		public virtual object CreateConstraintOperand(object actual)
 		{
-			if (actual is IEnumerable && !(actual is string))
-				return FormatCollection(actual as IEnumerable);
-			return actual.ToString();
+			return Conversion.Convert<TActual>(actual);
 		}
 
-		protected string FormatCollection(IEnumerable enumerable)
+		public virtual string CreateErrorMessage(object actual)
 		{
-			var first = true;
-			var text = new StringBuilder("[");
-			foreach (var item in enumerable)
-			{
-				if (!first)
-					text.Append(',');
-				else
-					first = false;
-				text.Append(item);
-			}
-			text.Append(']');
-			return text.ToString();
-		}
-
-		private string ActualToStringNullProtected(object actual)
-		{
-			return ReferenceEquals(actual, null) ? "null" : ActualToString(actual);
+			return ErrorMessageProvider.CreateErrorMessage(actual);
 		}
 	}
 }

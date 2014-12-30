@@ -7,7 +7,7 @@ namespace Atrico.Lib.Assertions
 	/// <summary>
 	///     Container for constraints that syntactically use is (Is.Equal, Is.OfType, etc)
 	/// </summary>
-	public interface ISatisfyConstraintProvider : IHasAdaptersBase
+	public interface ISatisfyConstraintProvider
 	{
 		/// <summary>
 		///     Match predicate

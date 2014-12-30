@@ -1,7 +1,7 @@
 ﻿// ReSharper disable once CheckNamespace
 namespace Atrico.Lib.Assertions
 {
-	public interface IAsCollectionConstraintProviders : IHasAdaptersBase
+	public interface IAsCollectionConstraintProviders
 	{
 		IConstraintProviders Count { get; }
 		IAsCollectionIsWithNotConstraintProvider Is { get; }

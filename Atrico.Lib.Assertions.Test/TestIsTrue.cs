@@ -31,7 +31,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Is.True));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -72,7 +72,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Is.Not.True));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -88,6 +88,21 @@ namespace Atrico.Lib.Assertions.Test
 			var expectedMsg = string.Format("Is.Not.True failed.");
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
+		}
+
+		[Test]
+		public void TestIsTrueWrongType()
+		{
+			// Arrange
+			const string actual = "123";
+
+			// Act
+			var ex = Catch.Exception(() => Assert.That(actual, Is.True));
+
+			// Assert
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNotNull(ex);
+			Debug.WriteLine(ex.Message);
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(ex.Message.Contains("OPERAND TYPE:"));
 		}
 	}
 }

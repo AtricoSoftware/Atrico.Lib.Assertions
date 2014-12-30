@@ -1,4 +1,7 @@
-﻿// ReSharper disable once CheckNamespace
+﻿using System.Collections;
+
+// ReSharper disable once CheckNamespace
+
 namespace Atrico.Lib.Assertions
 {
 	/// <summary>
@@ -9,34 +12,37 @@ namespace Atrico.Lib.Assertions
 		/// <summary>
 		///     Constructor
 		/// </summary>
-		public AsCollectionConstraintProvider(params IAdapter[] adapters)
-			: base(adapters)
+		/// <param name="decorator">Decorator from previous provider</param>
+		public AsCollectionConstraintProvider(DecoratorFunction decorator = null)
+			: base(decorator)
 		{
+			AppendDecorator(NameDecorator.Create("AsCollection"));
+			AppendDecorator(TypeChangeDecorator<IEnumerable>.Create());
 		}
 
 		public IConstraintProviders Count
 		{
-			get { return new ConstraintProviders(Adapters).AddAdapter(new CountAdapter()); }
+			get { return new ConstraintProviders(Decorator.Append(CountDecorator.Create())); }
 		}
 
 		public IConstraintProviders AtLeastOne
 		{
-			get { return new ConstraintProviders(Adapters).AddAdapter(new AtLeastOneAdapter()); }
+			get { return new ConstraintProviders(Decorator.Append(AtLeastOneDecorator.Create())); }
 		}
 
 		public IConstraintProviders EveryOne
 		{
-			get { return new ConstraintProviders(Adapters).AddAdapter(new EveryOneAdapter()); }
+			get { return new ConstraintProviders(Decorator.Append(EveryOneDecorator.Create())); }
 		}
 
 		public IAsCollectionDoesWithNotConstraintProvider Does
 		{
-			get { return new DoesConstraintProvider(Adapters); }
+			get { return new DoesConstraintProvider(Decorator); }
 		}
 
 		public IAsCollectionIsWithNotConstraintProvider Is
 		{
-			get { return new IsConstraintProvider(Adapters); }
+			get { return new IsConstraintProvider(Decorator); }
 		}
 	}
 }

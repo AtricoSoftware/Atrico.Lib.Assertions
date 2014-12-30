@@ -4,11 +4,16 @@ namespace Atrico.Lib.Assertions
 	/// <summary>
 	///     Match to true
 	/// </summary>
-	public class TrueConstraint : TrueOrFalseConstraintBase
+	public class TrueConstraint : AssertConstraintUnaryBase<bool>
 	{
-		public override bool Test(object actual)
+		protected override IErrorMessageProvider ErrorMessageProvider
 		{
-			return actual is bool && (bool)actual;
+			get { return new NoErrorMessageProvider(); }
+		}
+
+		public override bool TestImpl(bool actual)
+		{
+			return actual;
 		}
 	}
 }

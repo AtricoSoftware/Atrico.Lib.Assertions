@@ -13,6 +13,11 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <releaseNotes>
+2.1.0.0
+  More detailed error message when comparing collections
+2.0.0.0:
+  Adapters removed, only decorators now used.
+  Decoraters combined using lambdas and generally cleaned up
 1.1.0.0:
   Implemented overloads for IsEqualTo and IsEquivalentTo using custom comparers
 1.0.0.2:
@@ -28,7 +33,6 @@
   </metadata>
   <files>
     <file src="bin\Release\$id$.*" target="lib\net45" />
-    <file src="..\*.40\bin\Release\$id$.*" target="lib\net40" />
     <file src="..\..\License.txt" target="docs" />
   </files>
 </package>

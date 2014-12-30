@@ -46,15 +46,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapters\AsCollection\AtLeastOneAdapter.cs" />
-    <Compile Include="Adapters\AsCollection\CountAdapter.cs" />
-    <Compile Include="Adapters\AsCollection\EveryOneAdapter.cs" />
-    <Compile Include="Adapters\HasAdaptersBase.cs" />
-    <Compile Include="Adapters\IAdapter.cs" />
-    <Compile Include="Adapters\NameAdapter.cs" />
-    <Compile Include="Adapters\NameDecorater.cs" />
-    <Compile Include="Adapters\NotAdapter.cs" />
+    <Compile Include="Helpers\CollectionWithHighlights.cs" />
+    <Compile Include="Helpers\BinaryErrorMessageProvider.cs" />
+    <Compile Include="Constraints\ReferenceEqualToConstraint.cs" />
+    <Compile Include="Decorators\TypeChangeDecorator.cs" />
+    <Compile Include="Helpers\NoErrorMessageProvider.cs" />
+    <Compile Include="Helpers\TypeOfErrorMessageProvider.cs" />
+    <Compile Include="Helpers\UnaryErrorMessageProvider.cs" />
+    <Compile Include="Helpers\IErrorMessageProvider.cs" />
     <Compile Include="Properties\AssemblyVersion.cs" />
+    <Compile Include="_Base\DecoratorBase.cs" />
+    <Compile Include="Decorators\AtLeastOneDecorator.cs" />
+    <Compile Include="Decorators\EveryOneDecorator.cs" />
+    <Compile Include="Decorators\NameDecorator.cs" />
+    <Compile Include="Decorators\CountDecorator.cs" />
+    <Compile Include="Decorators\NotDecorator.cs" />
+    <Compile Include="Decorators\NullDecorator.cs" />
     <Compile Include="Assert.cs" />
     <Compile Include="Constraints\BetweenConstraint.cs" />
     <Compile Include="Constraints\ContainConstraint.cs" />
@@ -69,12 +76,8 @@
     <Compile Include="Constraints\NullConstraint.cs" />
     <Compile Include="Constraints\PredicateConstraint.cs" />
     <Compile Include="Constraints\TrueConstraint.cs" />
-    <Compile Include="Constraints\TrueOrFalseConstraintBase.cs" />
     <Compile Include="Constraints\TypeOfConstraint.cs" />
     <Compile Include="IAssertConstraint.cs" />
-    <Compile Include="IErrorMessage.cs" />
-    <Compile Include="NamesByConvention\EverythingBefore.cs" />
-    <Compile Include="NamesByConvention\NameByConvention.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
     <Compile Include="Providers\AsCollection\AsCollectionConstraintProvider.cs" />
@@ -83,7 +86,9 @@
     <Compile Include="Providers\AsCollection\IAsCollectionDoesWithNotConstraintProvider.cs" />
     <Compile Include="Providers\AsCollection\IAsCollectionIsConstraintProvider.cs" />
     <Compile Include="Providers\AsCollection\IAsCollectionIsWithNotConstraintProvider.cs" />
+    <Compile Include="_Base\ConstraintProviderBase.cs" />
     <Compile Include="Providers\ConstraintProviders.cs" />
+    <Compile Include="Decorators\DecoratorHelper.cs" />
     <Compile Include="Providers\Does\DoesConstraintProvider.cs" />
     <Compile Include="Providers\Does\IDoesConstraintProvider.cs" />
     <Compile Include="Providers\Does\IDoesWithNotConstraintProvider.cs" />
@@ -92,18 +97,16 @@
     <Compile Include="Providers\Does\Satisfy\ISatisfyConstraintProvider.cs" />
     <Compile Include="Providers\Does\Satisfy\SatisfyConstraintProvider.cs" />
     <Compile Include="Providers\IConstraintProviders.cs" />
-    <Compile Include="Providers\INotAdapterProvider.cs" />
+    <Compile Include="Providers\INotProvider.cs" />
     <Compile Include="Providers\Is\IIsConstraintProvider.cs" />
     <Compile Include="Providers\Is\IIsWithNotConstraintProvider.cs" />
     <Compile Include="Providers\Is\IsConstraintProvider.cs" />
-    <Compile Include="Providers\_Statics\AsCollection.cs" />
-    <Compile Include="Providers\_Statics\Does.cs" />
-    <Compile Include="Providers\_Statics\Is.cs" />
+    <Compile Include="Providers\AsCollection\AsCollection.cs" />
+    <Compile Include="Providers\Does\Does.cs" />
+    <Compile Include="Providers\Is\Is.cs" />
     <Compile Include="_Base\AssertConstraintBase.cs" />
     <Compile Include="_Base\AssertConstraintBinaryBase.cs" />
     <Compile Include="_Base\AssertConstraintUnaryBase.cs" />
-    <Compile Include="_Base\ConstraintProviderBase.cs" />
-    <Compile Include="_Base\ConstraintProviderHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -111,6 +114,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Atrico.Lib.Assertions.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Atrico.Lib.Common\Atrico.Lib.Common\Atrico.Lib.Common.csproj">
+      <Project>{983a29ac-8a3b-4d78-81d7-bcaf9b520877}</Project>
+      <Name>Atrico.Lib.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

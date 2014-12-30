@@ -1,14 +1,15 @@
 ﻿// ReSharper disable once CheckNamespace
+
 namespace Atrico.Lib.Assertions
 {
 	/// <summary>
-	///     Interface for an assertion constraint with unary test
+	///     Base for an assertion constraint with unary test
 	/// </summary>
-	public abstract class AssertConstraintUnaryBase : AssertConstraintBase
+	public abstract class AssertConstraintUnaryBase<TActual> : AssertConstraintBase<TActual>
 	{
-		public override string CreateErrorMessage(object actual)
+		protected override IErrorMessageProvider ErrorMessageProvider
 		{
-			return CreateFormattedActual(actual);
+			get { return new UnaryErrorMessageProvider(); }
 		}
 	}
 }

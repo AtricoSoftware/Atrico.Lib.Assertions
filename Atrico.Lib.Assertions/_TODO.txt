@@ -3,11 +3,10 @@
  
 TODO
 ~~~~
-Pipelines
+refactor message into aggregate
 asynchronous delay adapter (spinwait)
 better message for not constraints
  
-Test wrong types (eg collection.XXX with non collection)
 
 Collection converts and checks type
 	(Type converter base class)
@@ -15,4 +14,3 @@ Collection converts and checks type
 Type safe (assert(T, Constraint(T)) - using interfaces ???
 
 CONSTRAINTS
-Optional comparator for IsEqual, IsEquivalent

@@ -7,15 +7,20 @@ namespace Atrico.Lib.Assertions
 	/// <summary>
 	///     Match values using less than
 	/// </summary>
-	internal class LessThanOrEqualToConstraint<T> : AssertConstraintBinaryBase<T> where T : IComparable<T>
+	internal class LessThanOrEqualToConstraint<TExpected> : AssertConstraintBinaryBase<object, TExpected> where TExpected : IComparable<TExpected>
 	{
 		/// <summary>
 		///     Constructor
 		/// </summary>
 		/// <param name="expected">Expected value</param>
-		public LessThanOrEqualToConstraint(T expected)
+		public LessThanOrEqualToConstraint(TExpected expected)
 			: base(expected)
 		{
+		}
+
+		protected override IErrorMessageProvider ErrorMessageProvider
+		{
+			get { return new UnaryErrorMessageProvider(); }
 		}
 
 		/// <summary>
@@ -23,9 +28,9 @@ namespace Atrico.Lib.Assertions
 		/// </summary>
 		/// <param name="expected">Expected value</param>
 		/// <param name="actual">Actual value</param>
-		protected override bool Test(T expected, object actual)
+		protected override bool Test(TExpected expected, object actual)
 		{
-			var actualT = actual as IComparable<T>;
+			var actualT = actual as IComparable<TExpected>;
 			return !ReferenceEquals(actualT, null) && actualT.CompareTo(expected) <= 0;
 		}
 	}

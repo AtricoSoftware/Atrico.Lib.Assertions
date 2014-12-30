@@ -7,32 +7,44 @@ namespace Atrico.Lib.Assertions
 	/// <summary>
 	///     Match values between 2 values
 	/// </summary>
-	internal class BetweenConstraint<T> : AssertConstraintBinaryBase<BetweenConstraint<T>.Range>
-		where T : IComparable<T>
+	internal class BetweenConstraint<TExpected> : AssertConstraintBinaryBase<object, BetweenConstraint<TExpected>.Range>
+		where TExpected : IComparable<TExpected>
 	{
 		public class Range
 		{
-			public T LowerLimit { get; private set; }
-			public T UpperLimit { get; private set; }
+			private readonly TExpected _lowerLimit;
+			private readonly TExpected _upperLimit;
 
-			public Range(T lowerLimit, T upperLimit)
+			public Range(TExpected lowerLimit, TExpected upperLimit)
 			{
-				LowerLimit = lowerLimit;
-				UpperLimit = upperLimit;
+				_lowerLimit = lowerLimit;
+				_upperLimit = upperLimit;
+			}
+
+			public bool IsWithin(IComparable<TExpected> actual)
+			{
+				return !ReferenceEquals(actual, null)
+				       && actual.CompareTo(_lowerLimit) >= 0
+				       && actual.CompareTo(_upperLimit) <= 0;
 			}
 
 			public override string ToString()
 			{
-				return string.Format("{0} -> {1}", LowerLimit, UpperLimit);
+				return string.Format("{0} -> {1}", _lowerLimit, _upperLimit);
 			}
 		}
 
 		/// <summary>
 		///     Constructor
 		/// </summary>
-		public BetweenConstraint(T lowerLimit, T upperLimit)
+		public BetweenConstraint(TExpected lowerLimit, TExpected upperLimit)
 			: base(new Range(lowerLimit, upperLimit))
 		{
+		}
+
+		protected override IErrorMessageProvider ErrorMessageProvider
+		{
+			get { return new UnaryErrorMessageProvider(); }
 		}
 
 		/// <summary>
@@ -42,9 +54,7 @@ namespace Atrico.Lib.Assertions
 		/// <param name="actual">Actual value</param>
 		protected override bool Test(Range expected, object actual)
 		{
-			var actualT = actual as IComparable<T>;
-			return !ReferenceEquals(actualT, null) && actualT.CompareTo(expected.LowerLimit) >= 0 &&
-			       actualT.CompareTo(expected.UpperLimit) <= 0;
+			return expected.IsWithin(actual as IComparable<TExpected>);
 		}
 	}
 }

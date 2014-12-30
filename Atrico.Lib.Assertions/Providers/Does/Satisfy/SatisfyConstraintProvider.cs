@@ -12,9 +12,11 @@ namespace Atrico.Lib.Assertions
 		/// <summary>
 		///     Constructor
 		/// </summary>
-		public SatisfyConstraintProvider(params IAdapter[] adapters)
-			: base(adapters)
+		/// <param name="decorator">Decorator from previous provider</param>
+		public SatisfyConstraintProvider(DecoratorFunction decorator)
+			: base(decorator)
 		{
+			AppendDecorator(NameDecorator.Create("Satisfy"));
 		}
 
 		/// <summary>
@@ -23,7 +25,7 @@ namespace Atrico.Lib.Assertions
 		/// <returns>Constraint</returns>
 		public IAssertConstraint Predicate<T>(Func<T, bool> predicate)
 		{
-			return Adapt(new PredicateConstraint<T>(predicate));
+			return Decorator(new PredicateConstraint<T>(predicate));
 		}
 	}
 }

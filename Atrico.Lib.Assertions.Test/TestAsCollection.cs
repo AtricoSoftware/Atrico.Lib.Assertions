@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Atrico.Lib.Testing;
 using Atrico.Lib.Testing.NUnitAttributes;
 
@@ -62,6 +63,22 @@ namespace Atrico.Lib.Assertions.Test
 
 			// Assert
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
+		}
+
+		[Test]
+		public void TestNonIEnumerable()
+		{
+			// Arrange
+			const int actual = 123;
+			var expected = new[] {1, 2, 3};
+
+			// Act
+			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Is.EqualTo(expected)));
+
+			// Assert
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNotNull(ex);
+			Debug.WriteLine(ex.Message);
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(ex.Message.Contains("OPERAND TYPE:"));
 		}
 
 		private class CustomObject : IEnumerable<int>

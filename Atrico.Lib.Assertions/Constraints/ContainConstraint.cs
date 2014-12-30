@@ -9,7 +9,7 @@ namespace Atrico.Lib.Assertions
 	/// <summary>
 	///     Match collections containing item
 	/// </summary>
-	internal class ContainConstraint : AssertConstraintBinaryBase<object>
+	internal class ContainConstraint : AssertConstraintBinaryBase<object, object>
 	{
 		/// <summary>
 		///     Constructor
@@ -18,6 +18,11 @@ namespace Atrico.Lib.Assertions
 		public ContainConstraint(object expected)
 			: base(expected)
 		{
+		}
+
+		protected override IErrorMessageProvider ErrorMessageProvider
+		{
+			get { return new UnaryErrorMessageProvider(); }
 		}
 
 		/// <summary>
@@ -33,11 +38,6 @@ namespace Atrico.Lib.Assertions
 				return set.Contains(expected);
 			}
 			return false;
-		}
-
-		public override string CreateErrorMessage(object actual)
-		{
-			return "";
 		}
 	}
 }

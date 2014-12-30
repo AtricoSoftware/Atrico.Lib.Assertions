@@ -4,9 +4,9 @@ namespace Atrico.Lib.Assertions
 	/// <summary>
 	///     Match to null
 	/// </summary>
-	public class NullConstraint : AssertConstraintUnaryBase
+	public class NullConstraint : AssertConstraintUnaryBase<object>
 	{
-		public override bool Test(object actual)
+		public override bool TestImpl(object actual)
 		{
 			return ReferenceEquals(actual, null);
 		}

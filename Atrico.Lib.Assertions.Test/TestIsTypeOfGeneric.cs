@@ -31,7 +31,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Is.TypeOf<float>()));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -39,7 +39,7 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			const int actual = 1;
-			var expected = typeof(float);
+			var expected = typeof (float);
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, Is.TypeOf<float>()));
@@ -73,7 +73,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Is.Not.TypeOf<int>()));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -81,7 +81,7 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			// Arrange
 			const int actual = 1;
-			var expected = typeof(int);
+			var expected = typeof (int);
 
 			// Act
 			var ex = Catch.Exception(() => Assert.That(actual, Is.Not.TypeOf<int>()));

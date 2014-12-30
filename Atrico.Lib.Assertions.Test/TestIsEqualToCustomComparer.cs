@@ -12,9 +12,9 @@ namespace Atrico.Lib.Assertions.Test
 		{
 			public int Compare(object a, object e)
 			{
-				var iA = (int)a;
-				var iE = (int)e;
-				return iA.CompareTo(iE/2);
+				var iA = (int) a;
+				var iE = (int) e;
+				return iA.CompareTo(iE / 2);
 			}
 		}
 
@@ -26,7 +26,7 @@ namespace Atrico.Lib.Assertions.Test
 			const int expected = 2;
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Is.EqualTo(expected, (a, e) => ((int)a).Equals(((int)e)/2))));
+			var ex = Catch.Exception(() => Assert.That(actual, Is.EqualTo(expected, (a, e) => ((int) a).Equals(((int) e) / 2))));
 
 			// Assert
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
@@ -40,10 +40,10 @@ namespace Atrico.Lib.Assertions.Test
 			const int expected = 1;
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Is.EqualTo(expected, (a, e) => ((int)a).Equals(((int)e)/2))));
+			var ex = Catch.Exception(() => Assert.That(actual, Is.EqualTo(expected, (a, e) => ((int) a).Equals(((int) e) / 2))));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -71,7 +71,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Is.EqualTo(expected, new CustomComparer())));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 	}
 }

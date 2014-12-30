@@ -35,7 +35,7 @@ namespace Atrico.Lib.Assertions.Test
 			var actual = new Base();
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface(typeof(IBase))));
+			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface(typeof (IBase))));
 
 			// Assert
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
@@ -48,7 +48,7 @@ namespace Atrico.Lib.Assertions.Test
 			var actual = new Derived();
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface(typeof(IBase))));
+			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface(typeof (IBase))));
 
 			// Assert
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
@@ -61,10 +61,10 @@ namespace Atrico.Lib.Assertions.Test
 			var actual = new Base();
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface(typeof(INot))));
+			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface(typeof (INot))));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -74,10 +74,10 @@ namespace Atrico.Lib.Assertions.Test
 			var actual = new Base();
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface(typeof(INot))));
+			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface(typeof (INot))));
 
 			// Assert
-			var expectedMsg = string.Format("Does.Implement.Interface<{0}> failed.", typeof(INot));
+			var expectedMsg = string.Format("Does.Implement.Interface<{0}> failed.", typeof (INot));
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}
@@ -118,7 +118,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface<INot>()));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -131,7 +131,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Does.Implement.Interface<INot>()));
 
 			// Assert
-			var expectedMsg = string.Format("Does.Implement.Interface<{0}> failed.", typeof(INot));
+			var expectedMsg = string.Format("Does.Implement.Interface<{0}> failed.", typeof (INot));
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}
@@ -143,10 +143,10 @@ namespace Atrico.Lib.Assertions.Test
 			var actual = new Base();
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface(typeof(IBase))));
+			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface(typeof (IBase))));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -156,10 +156,10 @@ namespace Atrico.Lib.Assertions.Test
 			var actual = new Derived();
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface(typeof(IBase))));
+			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface(typeof (IBase))));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -169,7 +169,7 @@ namespace Atrico.Lib.Assertions.Test
 			var actual = new Base();
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface(typeof(INot))));
+			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface(typeof (INot))));
 
 			// Assert
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
@@ -182,10 +182,10 @@ namespace Atrico.Lib.Assertions.Test
 			var actual = new Base();
 
 			// Act
-			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface(typeof(IBase))));
+			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface(typeof (IBase))));
 
 			// Assert
-			var expectedMsg = string.Format("Does.Not.Implement.Interface<{0}> failed.", typeof(IBase));
+			var expectedMsg = string.Format("Does.Not.Implement.Interface<{0}> failed.", typeof (IBase));
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}
@@ -200,7 +200,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface<IBase>()));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -213,7 +213,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface<IBase>()));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -239,7 +239,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, Does.Not.Implement.Interface<IBase>()));
 
 			// Assert
-			var expectedMsg = string.Format("Does.Not.Implement.Interface<{0}> failed.", typeof(IBase));
+			var expectedMsg = string.Format("Does.Not.Implement.Interface<{0}> failed.", typeof (IBase));
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}

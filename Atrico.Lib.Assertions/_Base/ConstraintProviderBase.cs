@@ -1,24 +1,27 @@
 ﻿// ReSharper disable once CheckNamespace
+
 namespace Atrico.Lib.Assertions
 {
-	public abstract class ConstraintProviderBase : HasAdaptersBase
+	public abstract class ConstraintProviderBase
 	{
+		protected DecoratorFunction Decorator { get; private set; }
+
 		/// <summary>
-		///     Constructor
+		/// Constructor
 		/// </summary>
-		protected ConstraintProviderBase(params IAdapter[] adapters)
-			: this(null, adapters)
+		/// <param name="decorator">Decorator from previous provider + new adapters for this provider</param>
+		protected ConstraintProviderBase(DecoratorFunction decorator)
 		{
+			Decorator = decorator;
 		}
 
 		/// <summary>
-		///     Constructor
+		/// Append a decorator to this provider
 		/// </summary>
-		protected ConstraintProviderBase(string name, params IAdapter[] adapters)
+		/// <param name="decorator">Decorator to append</param>
+		protected void AppendDecorator(DecoratorFunction decorator)
 		{
-			var name2 = name ?? new EverythingBefore(GetType().Name, "ConstraintProvider");
-			AddAdapters(adapters);
-			if (name2 != "") AddNameAdapter(new NameAdapter(name2));
+			Decorator = Decorator.Append(decorator);
 		}
 	}
 }

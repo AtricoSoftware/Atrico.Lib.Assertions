@@ -33,7 +33,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Does.Contain(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -47,7 +47,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Does.Contain(expected)));
 
 			// Assert
-			var expectedMsg = string.Format("AsCollection.Does.Contain({0}) failed.", expected);
+			var expectedMsg = string.Format("AsCollection.Does.Contain({0}) failed. Actual:<[1,2,3,4]>", expected);
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}
@@ -77,7 +77,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Does.Not.Contain(expected)));
 
 			// Assert
-			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
 		}
 
 		[Test]
@@ -91,7 +91,7 @@ namespace Atrico.Lib.Assertions.Test
 			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Does.Not.Contain(expected)));
 
 			// Assert
-			var expectedMsg = string.Format("Does.Not.Contain({0}) failed.", expected);
+			var expectedMsg = string.Format("AsCollection.Does.Not.Contain({0}) failed. Actual:<[1,2,3,4]>", expected);
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}
