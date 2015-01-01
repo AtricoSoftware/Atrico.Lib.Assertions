@@ -14,6 +14,7 @@
     <copyright>$copyright$</copyright>
     <releaseNotes>
 2.1.0.0
+  Common functions moved into common lib
   More detailed error message when comparing collections
 2.0.0.0:
   Adapters removed, only decorators now used.

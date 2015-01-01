@@ -41,14 +41,18 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Atrico.Lib.Testing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Atrico.Lib.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Atrico.Lib.Testing.1.0.0.0\lib\net45\Atrico.Lib.Testing.dll</HintPath>
+      <HintPath>..\packages\Atrico.Lib.Common.1.1.0.0\lib\net45\Atrico.Lib.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Atrico.Lib.Testing, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Atrico.Lib.Testing.1.1.0.0\lib\net45\Atrico.Lib.Testing.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -64,9 +68,6 @@
     <Compile Include="..\Atrico.Lib.Assertions\Properties\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
-    <Compile Include="Helpers\TestConversionBool.cs" />
-    <Compile Include="Helpers\TestConversionPod.cs" />
-    <Compile Include="Helpers\TestConversionObject.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
     <Compile Include="TestCreateErrorMessage.cs" />
     <Compile Include="TestAsCollection.cs" />
@@ -97,13 +98,10 @@
     <Compile Include="TestIsTypeOfGeneric.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Atrico.Lib.Common\Atrico.Lib.Common\Atrico.Lib.Common.csproj">
-      <Project>{983a29ac-8a3b-4d78-81d7-bcaf9b520877}</Project>
-      <Name>Atrico.Lib.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Atrico.Lib.Assertions\Atrico.Lib.Assertions.csproj">
       <Project>{84481d71-f7f0-4c10-87ec-b5717c2860de}</Project>
       <Name>Atrico.Lib.Assertions</Name>

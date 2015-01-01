@@ -175,7 +175,23 @@ namespace Atrico.Lib.Assertions.Test
 			Debug.WriteLine(ex.Message);
 		}
 
+		[Test]
+		public void TestAsCollectionIsEqualToMessageTwoOutOfOrderNonAdjacent()
+		{
+			// Arrange
+			var actual = new List<int> {5, 2, 3, 4, 1};
+			var expected = new[] {1, 2, 3, 4, 5};
+
+			// Act
+			var ex = Catch.Exception(() => Assert.That(actual, AsCollection.Is.EqualTo(expected)));
+
+			// Assert
+			var expectedMsg = string.Format("AsCollection.Is.EqualTo failed. Expected:<[1,2,3,4,5]>, Actual:<[5,2,3,4,1]>: OutOfOrder<[1,5]>");
+			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
+			Debug.WriteLine(ex.Message);
+		}
+
 		// TODO - more variations of wrong order 
-		// multiple out of order not adjacent - 0800 0525040
+		// multiple out of order not adjacent
 	}
 }

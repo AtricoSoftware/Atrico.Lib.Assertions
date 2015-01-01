@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Text;
 using Atrico.Lib.Common;
+using Atrico.Lib.Common.Collections;
 
 // ReSharper disable once CheckNamespace
 
@@ -32,7 +33,7 @@ namespace Atrico.Lib.Assertions
 			var sep = _expectedMessage.Value.Length > 0 && actualError.Length > 0 ? ", " : "";
 			var text = new StringBuilder();
 			text.AppendFormat("{0}{1}{2}", _expectedMessage.Value, sep, actualError);
-			var collection = CollectionComparer.Differences(actual as IEnumerable, _expected as IEnumerable);
+			var collection = CollectionComparer.Differences(actual as IEnumerable, _expected as IEnumerable).ToString();
 			sep = text.Length > 0 && collection.Length > 0 ? ": " : "";
 			text.AppendFormat("{0}{1}", sep, collection);
 
