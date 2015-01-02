@@ -190,8 +190,5 @@ namespace Atrico.Lib.Assertions.Test
 			Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
 			Debug.WriteLine(ex.Message);
 		}
-
-		// TODO - more variations of wrong order 
-		// multiple out of order not adjacent
 	}
 }

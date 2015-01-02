@@ -3,7 +3,6 @@
  
 TODO
 ~~~~
-refactor message into aggregate
 asynchronous delay adapter (spinwait)
 better message for not constraints
  
