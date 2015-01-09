@@ -84,6 +84,5 @@ namespace Atrico.Lib.Assertions
 		{
 			get { return "EqualTo"; }
 		}
-
 	}
 }

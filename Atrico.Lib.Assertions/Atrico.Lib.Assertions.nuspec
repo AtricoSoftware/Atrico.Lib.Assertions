@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<package >
+
+<package>
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
@@ -13,23 +14,23 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <releaseNotes>
-2.1.0.0
-  Common functions moved into common lib
-  More detailed error message when comparing collections
-2.0.0.0:
-  Adapters removed, only decorators now used.
-  Decoraters combined using lambdas and generally cleaned up
-1.1.0.0:
-  Implemented overloads for IsEqualTo and IsEquivalentTo using custom comparers
-1.0.0.2:
-  Fixed error message where string was treated as list of chars
-  Internal code tweaks - Pulled into separate projects for framework version and single solution for GitHub
-  Icon and project urls pointed at GitHub
-1.0.0.1:
-  License added
-  Icon added
-1.0.0.0:
-  Initial release
+      2.1.0.0
+      Common functions moved into common lib
+      More detailed error message when comparing collections
+      2.0.0.0:
+      Adapters removed, only decorators now used.
+      Decoraters combined using lambdas and generally cleaned up
+      1.1.0.0:
+      Implemented overloads for IsEqualTo and IsEquivalentTo using custom comparers
+      1.0.0.2:
+      Fixed error message where string was treated as list of chars
+      Internal code tweaks - Pulled into separate projects for framework version and single solution for GitHub
+      Icon and project urls pointed at GitHub
+      1.0.0.1:
+      License added
+      Icon added
+      1.0.0.0:
+      Initial release
     </releaseNotes>
   </metadata>
   <files>

@@ -1,7 +1,6 @@
 using Atrico.Lib.Common;
+
 // ReSharper disable once CheckNamespace
-
-
 
 namespace Atrico.Lib.Assertions
 {
