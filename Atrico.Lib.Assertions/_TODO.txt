@@ -7,9 +7,6 @@ asynchronous delay adapter (spinwait)
 better message for not constraints
  
 
-Collection converts and checks type
-	(Type converter base class)
-
 Type safe (assert(T, Constraint(T)) - using interfaces ???
 
 CONSTRAINTS
