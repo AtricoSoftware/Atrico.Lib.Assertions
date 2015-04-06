@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using Atrico.Lib.Assertions.Constraints;
+using Atrico.Lib.Assertions.Elements;
 using Atrico.Lib.Testing.NUnitAttributes;
 
 namespace Atrico.Lib.Assertions.Test
@@ -13,10 +15,10 @@ namespace Atrico.Lib.Assertions.Test
             // Arrange
             const int actual = 1;
             const int expected = 2;
-            var constraint = Is.EqualTo(expected);
+            var constraint = Value.Of(actual).Is().EqualTo(expected);
 
             // Act
-            var msg = constraint.CreateErrorMessage(actual);
+            var msg = constraint.ErrorMessage;
 
             // Assert
             var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>", expected, actual);
@@ -29,10 +31,10 @@ namespace Atrico.Lib.Assertions.Test
             // Arrange
             var actual = new[] {1, 2, 3};
             var expected = new[] {1, 2, 3, 4};
-            var constraint = AsCollection.Is.EqualTo(expected);
+            var constraint = Value.Of(actual).Is().EqualTo(expected);
 
             // Act
-            var msg = constraint.CreateErrorMessage(actual);
+            var msg = constraint.ErrorMessage;
 
             // Assert
             var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>: Count<-1>, Missing<[4]>", FormatList(expected), FormatList(actual));
@@ -45,10 +47,10 @@ namespace Atrico.Lib.Assertions.Test
             // Arrange
             var actual = new List<int> {1, 2, 3, 4};
             var expected = new[] {1, 2, 3};
-            var constraint = AsCollection.Is.EqualTo(expected);
+            var constraint = Value.Of(actual).Is().EqualTo(expected);
 
             // Act
-            var msg = constraint.CreateErrorMessage(actual);
+            var msg = constraint.ErrorMessage;
 
             // Assert
             var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>: Count<+1>, Extra<[4]>", FormatList(expected), FormatList(actual));
@@ -61,10 +63,10 @@ namespace Atrico.Lib.Assertions.Test
             // Arrange
             const string actual = "hello";
             const string expected = "world";
-            var constraint = Is.EqualTo(expected);
+            var constraint = Value.Of(actual).Is().EqualTo(expected);
 
             // Act
-            var msg = constraint.CreateErrorMessage(actual);
+            var msg = constraint.ErrorMessage;
 
             // Assert
             var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>", expected, actual);

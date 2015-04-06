@@ -1,37 +1,32 @@
-// ReSharper disable once CheckNamespace
+﻿using System;
 
-namespace Atrico.Lib.Assertions
+namespace Atrico.Lib.Assertions.Decorators
 {
-	/// <summary>
-	/// Decorator to prepend to name (with dot separator)
-	/// </summary>
-	public sealed class NameDecorator : DecoratorBase
-	{
-		private readonly string _name;
+    /// <summary>
+    ///     Decorator that changes nothing but the name
+    /// </summary>
+    public sealed class NameDecorator : Decorator
+    {
+        private readonly Func<string> _nameFunc;
 
-		public static DecoratorFunction Create(string name)
-		{
-			return n => new NameDecorator(name, n);
-		}
+        public static Decorator Create(Func<string> nameFunc)
+        {
+            return new NameDecorator(nameFunc);
+        }
 
-		private NameDecorator(string name, IAssertConstraint child)
-			: base(child)
-		{
-			_name = name;
-		}
+        public static Decorator Create(string format, params object[] args)
+        {
+            return Create(() => string.Format(format, args));
+        }
 
-		public override string Name
-		{
-			get
-			{
-				var pre = _name;
-				var post = base.Name;
-				if (string.IsNullOrWhiteSpace(pre))
-				{
-					return post;
-				}
-				return pre + (string.IsNullOrWhiteSpace(post) ? "" : "." + post);
-			}
-		}
-	}
+        private NameDecorator(Func<string> nameFunc)
+        {
+            _nameFunc = nameFunc;
+        }
+
+        protected override string CreateElementName()
+        {
+            return _nameFunc();
+        }
+    }
 }

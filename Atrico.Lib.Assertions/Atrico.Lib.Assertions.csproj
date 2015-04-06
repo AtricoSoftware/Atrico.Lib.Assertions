@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -41,76 +41,86 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Atrico.Lib.Common, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Atrico.Lib.Common, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Atrico.Lib.Common.1.2.0.0\lib\net45\Atrico.Lib.Common.dll</HintPath>
+      <HintPath>..\packages\Atrico.Lib.Common.1.3.0.0\lib\net45\Atrico.Lib.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\CollectionWithHighlights.cs" />
-    <Compile Include="Helpers\BinaryErrorMessageProvider.cs" />
-    <Compile Include="Constraints\ReferenceEqualToConstraint.cs" />
-    <Compile Include="Decorators\TypeChangeDecorator.cs" />
-    <Compile Include="Helpers\NoErrorMessageProvider.cs" />
-    <Compile Include="Helpers\TypeOfErrorMessageProvider.cs" />
-    <Compile Include="Helpers\UnaryErrorMessageProvider.cs" />
-    <Compile Include="Helpers\IErrorMessageProvider.cs" />
-    <Compile Include="Properties\AssemblyVersion.cs" />
-    <Compile Include="_Base\DecoratorBase.cs" />
-    <Compile Include="Decorators\AtLeastOneDecorator.cs" />
-    <Compile Include="Decorators\EveryOneDecorator.cs" />
+    <Compile Include="BinaryConstraint.cs" />
+    <Compile Include="Constraint.cs" />
+    <Compile Include="ConstraintElement.cs" />
+    <Compile Include="Decorators\NameLessDecorator.cs" />
+    <Compile Include="Elements\Misc.cs" />
+    <Compile Include="Implementation\Constraints\BetweenConstraint.cs" />
+    <Compile Include="Constraints\EqualsDelegate.cs" />
+    <Compile Include="Constraints\EqualsObjectDelegate.cs" />
+    <Compile Include="Implementation\Decorators\DistinctDecorator.cs" />
+    <Compile Include="Implementation\Decorators\WithinTimeoutDecorator.cs" />
+    <Compile Include="Implementation\Elements\WithinTimeoutConstraintElement.cs" />
+    <Compile Include="Implementation\Elements\CountConstraintElement.cs" />
+    <Compile Include="Constraints\CollectionIs.cs" />
+    <Compile Include="Constraints\CollectionDoes.cs" />
+    <Compile Include="Implementation\Constraints\ContainConstraint.cs" />
+    <Compile Include="Implementation\Constraints\EquivalentToConstraint.cs" />
+    <Compile Include="Implementation\Constraints\TypeOfConstraint.cs" />
+    <Compile Include="Implementation\Constraints\PredicateConstraint.cs" />
+    <Compile Include="Implementation\Constraints\InterfaceConstraint.cs" />
+    <Compile Include="Implementation\Constraints\GreaterThanConstraint.cs" />
+    <Compile Include="Implementation\Constraints\GreaterThanOrEqualToConstraint.cs" />
+    <Compile Include="Implementation\Constraints\LessThanConstraint.cs" />
+    <Compile Include="Implementation\Constraints\LessThanOrEqualToConstraint.cs" />
+    <Compile Include="Constraints\Range.cs" />
+    <Compile Include="Constraints\Reference.cs" />
+    <Compile Include="Constraints\Boolean.cs" />
+    <Compile Include="Constraints\Implements.cs" />
+    <Compile Include="Implementation\Constraints\ReferenceEqualToConstraint.cs" />
+    <Compile Include="Implementation\Constraints\NullConstraint.cs" />
+    <Compile Include="Constraints\Satisfy.cs" />
+    <Compile Include="Constraints\Equality.cs" />
+    <Compile Include="Implementation\Constraints\EqualToConstraint.cs" />
+    <Compile Include="Implementation\Constraints\FalseConstraint.cs" />
+    <Compile Include="Implementation\Constraints\TrueConstraint.cs" />
+    <Compile Include="Implementation\Decorators\CountDecorator.cs" />
+    <Compile Include="Decorator.cs" />
     <Compile Include="Decorators\NameDecorator.cs" />
-    <Compile Include="Decorators\CountDecorator.cs" />
-    <Compile Include="Decorators\NotDecorator.cs" />
-    <Compile Include="Decorators\NullDecorator.cs" />
+    <Compile Include="Implementation\Decorators\NotDecorator.cs" />
+    <Compile Include="Implementation\Decorators\PredicateDecorator.cs" />
+    <Compile Include="Implementation\Elements\AtLeastOneConstraintElement.cs" />
+    <Compile Include="Elements\CollectionModifiers.cs" />
+    <Compile Include="Implementation\Decorators\AtLeastOneDecorator.cs" />
+    <Compile Include="Implementation\Decorators\EveryOneDecorator.cs" />
+    <Compile Include="Implementation\Elements\DistinctConstraintElement.cs" />
+    <Compile Include="Implementation\Elements\EveryOneConstraintElement.cs" />
+    <Compile Include="Elements\Modifiers.cs" />
+    <Compile Include="Elements\DoesVerbs.cs" />
+    <Compile Include="Elements\Verbs.cs" />
+    <Compile Include="Implementation\Elements\DoesConstraintElement.cs" />
+    <Compile Include="Implementation\CollectionWithHighlights.cs" />
+    <Compile Include="Decorators\BinaryErrorMessageDecorator.cs" />
+    <Compile Include="Decorators\UnaryErrorMessageDecorator.cs" />
+    <Compile Include="Implementation\Elements\ImplementConstraintElement.cs" />
+    <Compile Include="Implementation\Elements\IsConstraintElement.cs" />
+    <Compile Include="Implementation\Elements\SatisfyConstraintElement.cs" />
+    <Compile Include="IConstraintElement.cs" />
+    <Compile Include="IDoesConstraintElement.cs" />
+    <Compile Include="IDoesWithNotConstraintElement.cs" />
+    <Compile Include="IImplementConstraintElement.cs" />
+    <Compile Include="IIsConstraintElement.cs" />
+    <Compile Include="IIsWithNotConstraintElement.cs" />
+    <Compile Include="ISatisfyConstraintElement.cs" />
+    <Compile Include="IValueConstraintElement.cs" />
+    <Compile Include="Implementation\Elements\NotConstraintElement.cs" />
+    <Compile Include="ObjectWithElementName.cs" />
+    <Compile Include="Properties\AssemblyVersion.cs" />
+    <Compile Include="UnaryConstraint.cs" />
+    <Compile Include="Value.cs" />
     <Compile Include="Assert.cs" />
-    <Compile Include="Constraints\BetweenConstraint.cs" />
-    <Compile Include="Constraints\ContainConstraint.cs" />
-    <Compile Include="Constraints\EqualToConstraint.cs" />
-    <Compile Include="Constraints\EquivalentToConstraint.cs" />
-    <Compile Include="Constraints\FalseConstraint.cs" />
-    <Compile Include="Constraints\GreaterThanConstraint.cs" />
-    <Compile Include="Constraints\GreaterThanOrEqualToConstraint.cs" />
-    <Compile Include="Constraints\InterfaceConstraint.cs" />
-    <Compile Include="Constraints\LessThanConstraint.cs" />
-    <Compile Include="Constraints\LessThanOrEqualToConstraint.cs" />
-    <Compile Include="Constraints\NullConstraint.cs" />
-    <Compile Include="Constraints\PredicateConstraint.cs" />
-    <Compile Include="Constraints\TrueConstraint.cs" />
-    <Compile Include="Constraints\TypeOfConstraint.cs" />
-    <Compile Include="IAssertConstraint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
-    <Compile Include="Providers\AsCollection\AsCollectionConstraintProvider.cs" />
-    <Compile Include="Providers\AsCollection\IAsCollectionConstraintProviders.cs" />
-    <Compile Include="Providers\AsCollection\IAsCollectionDoesConstraintProvider.cs" />
-    <Compile Include="Providers\AsCollection\IAsCollectionDoesWithNotConstraintProvider.cs" />
-    <Compile Include="Providers\AsCollection\IAsCollectionIsConstraintProvider.cs" />
-    <Compile Include="Providers\AsCollection\IAsCollectionIsWithNotConstraintProvider.cs" />
-    <Compile Include="_Base\ConstraintProviderBase.cs" />
-    <Compile Include="Providers\ConstraintProviders.cs" />
-    <Compile Include="Decorators\DecoratorHelper.cs" />
-    <Compile Include="Providers\Does\DoesConstraintProvider.cs" />
-    <Compile Include="Providers\Does\IDoesConstraintProvider.cs" />
-    <Compile Include="Providers\Does\IDoesWithNotConstraintProvider.cs" />
-    <Compile Include="Providers\Does\Implement\IImplementConstraintProvider.cs" />
-    <Compile Include="Providers\Does\Implement\ImplementConstraintProvider.cs" />
-    <Compile Include="Providers\Does\Satisfy\ISatisfyConstraintProvider.cs" />
-    <Compile Include="Providers\Does\Satisfy\SatisfyConstraintProvider.cs" />
-    <Compile Include="Providers\IConstraintProviders.cs" />
-    <Compile Include="Providers\INotProvider.cs" />
-    <Compile Include="Providers\Is\IIsConstraintProvider.cs" />
-    <Compile Include="Providers\Is\IIsWithNotConstraintProvider.cs" />
-    <Compile Include="Providers\Is\IsConstraintProvider.cs" />
-    <Compile Include="Providers\AsCollection\AsCollection.cs" />
-    <Compile Include="Providers\Does\Does.cs" />
-    <Compile Include="Providers\Is\Is.cs" />
-    <Compile Include="_Base\AssertConstraintBase.cs" />
-    <Compile Include="_Base\AssertConstraintBinaryBase.cs" />
-    <Compile Include="_Base\AssertConstraintUnaryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -119,6 +129,7 @@
   <ItemGroup>
     <None Include="Atrico.Lib.Assertions.nuspec" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

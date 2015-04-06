@@ -1,0 +1,147 @@
+﻿using System.Diagnostics;
+using Atrico.Lib.Assertions.Constraints;
+using Atrico.Lib.Assertions.Elements;
+using Atrico.Lib.Testing;
+using Atrico.Lib.Testing.NUnitAttributes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Atrico.Lib.Assertions.Test
+{
+    [TestFixture]
+    public class TestCollectionCount
+    {
+        [Test]
+        public void TestCollectionCountEqualToPass()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().EqualTo(expected)));
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
+        }
+
+        [Test]
+        public void TestCollectionCountEqualToFail()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length + 1;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().EqualTo(expected)));
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
+        }
+
+        [Test]
+        public void TestCollectionCountEqualToMessage()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length + 1;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().EqualTo(expected)));
+
+            // Assert
+            var expectedMsg = string.Format("Count.Is.EqualTo failed. Expected:<{0}>, Actual:<{1}>", expected,
+                actual.Length);
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
+            Debug.WriteLine(ex.Message);
+        }
+
+        [Test]
+        public void TestCollectionCountNotEqualToPass()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length + 1;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().Not().EqualTo(expected)));
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
+        }
+
+        [Test]
+        public void TestCollectionCountNotEqualToFail()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().Not().EqualTo(expected)));
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
+        }
+
+        [Test]
+        public void TestCollectionCountNotEqualToMessage()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().Not().EqualTo(expected)));
+
+            // Assert
+            var expectedMsg = string.Format("Count.Is.Not.EqualTo failed. Expected:<{0}>, Actual:<{1}>", expected,
+                actual.Length);
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
+            Debug.WriteLine(ex.Message);
+        }
+
+        [Test]
+        public void TestCollectionCountSatisfyPass()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Does().Satisfy().Predicate(a => a == expected)));
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
+        }
+
+        [Test]
+        public void TestCollectionCountSatisfyFail()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length + 1;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Does().Satisfy().Predicate(a => a == expected)));
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsInstanceOfType(ex, typeof (AssertFailedException));
+        }
+
+        [Test]
+        public void TestCollectionCountSatisfyMessage()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            var expected = actual.Length + 1;
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Does().Satisfy().Predicate(a => a == expected)));
+
+            // Assert
+            var expectedMsg = string.Format("Count.Does.Satisfy.Predicate failed. Subject:<{0}>", actual.Length);
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
+            Debug.WriteLine(ex.Message);
+        }
+    }
+}

@@ -1,12 +1,17 @@
 ﻿IN PROGRESS
 ~~~~~~~~~~~
- 
+
 TODO
 ~~~~
-asynchronous delay adapter (spinwait)
-better message for not constraints
+Public function xml comments
+better message for not constraints (?)
  
 
-Type safe (assert(T, Constraint(T)) - using interfaces ???
-
 CONSTRAINTS
+
+REFACTOR
+Test for adding custom bits
+
+name as property, not ctor param
+Tidy tests to test only element/constraint, etc
+Add "full pipeline" tests
