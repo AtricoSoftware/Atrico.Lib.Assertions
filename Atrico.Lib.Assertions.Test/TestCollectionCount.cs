@@ -143,5 +143,23 @@ namespace Atrico.Lib.Assertions.Test
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
             Debug.WriteLine(ex.Message);
         }
+
+        [Test]
+        public void TestCollectionCountwithPredicate()
+        {
+            // Arrange
+            var actual = new[] {1, 2, 3, 4};
+            const int expected = 2;
+            var constraintTrue = Value.Of(actual).Count(i=>i<=2).Is().EqualTo(expected);
+            var constraintFalse = Value.Of(actual).Count(i=>i<=2).Is().EqualTo(expected + 1);
+
+            // Act
+            var resultTrue = constraintTrue.Check();
+            var resultFalse = constraintFalse.Check();
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(resultTrue, "True");
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsFalse(resultFalse, "False");
+        }
     }
 }

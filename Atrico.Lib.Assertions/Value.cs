@@ -9,7 +9,7 @@ namespace Atrico.Lib.Assertions
             return new ValueProvider<T>(actual);
         }
 
-        private sealed class ValueProvider<T> : ConstraintElement<T>, IValueConstraintElement<T>
+        private sealed class ValueProvider<T> : ValueConstraintElement<T>
         {
             public ValueProvider(T value)
                 : base(new ValueProviderDecorator(value))

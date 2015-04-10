@@ -1,23 +1,21 @@
+using System;
 using System.Collections;
 using System.Linq;
 
 namespace Atrico.Lib.Assertions.Implementation.Decorators
 {
-    internal sealed class CountDecorator : Decorator
+    internal sealed class CountDecorator<TItem> : ValueModifierDecorator<int>
     {
-        public override bool Test(object actual)
+        private readonly Func<TItem, bool> _predicate;
+
+        public CountDecorator(Predicate<TItem> predicate)
         {
-            return base.Test(GetCount(actual));
+            _predicate = new Func<TItem, bool>(predicate);
         }
 
-        public override string CreateErrorMessage(object actual)
+        protected override int? ModifyValue(object actual)
         {
-            return base.CreateErrorMessage(GetCount(actual));
-        }
-
-        private static int GetCount(object actual)
-        {
-            return (actual as IEnumerable).Cast<object>().Count();
+            return (actual is IEnumerable) ? (actual as IEnumerable).Cast<TItem>().Count(_predicate) : (int?) null;
         }
     }
 }

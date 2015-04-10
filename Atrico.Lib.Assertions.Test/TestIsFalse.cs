@@ -91,5 +91,46 @@ namespace Atrico.Lib.Assertions.Test
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
             Debug.WriteLine(ex.Message);
         }
+
+        [Test]
+        public void TestIsFalseNullableFalse()
+        {
+            // Arrange
+            bool? actual = false;
+            var constraint = Value.Of(actual).Is().False();
+
+            // Act
+            var result = constraint.Check();
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void TestIsFalseNullableTrue()
+        {
+            // Arrange
+            bool? actual = true;
+            var constraint = Value.Of(actual).Is().False();
+
+            // Act
+            var result = constraint.Check();
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsFalse(result);
+        }
+
+        public void TestIsFalseNullableNull()
+        {
+            // Arrange
+            bool? actual = null;
+            var constraint = Value.Of(actual).Is().False();
+
+            // Act
+            var result = constraint.Check();
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsFalse(result);
+        }
     }
 }
