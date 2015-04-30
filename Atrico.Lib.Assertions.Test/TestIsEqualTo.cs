@@ -49,7 +49,7 @@ namespace Atrico.Lib.Assertions.Test
             var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Is().EqualTo(expected)));
 
             // Assert
-            var expectedMsg = string.Format("Is.EqualTo failed. Expected:<{0}>, Actual:<{1}>", expected, actual);
+            var expectedMsg = string.Format("Is.EqualTo failed. Expected:<{0} [{2}]>, Actual:<{1} [{2}]>", expected, actual, actual.GetType().Name);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
             Debug.WriteLine(ex.Message);
         }
@@ -66,7 +66,7 @@ namespace Atrico.Lib.Assertions.Test
             var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Is().EqualTo(expected), message));
 
             // Assert
-            var expectedMsg = string.Format("Is.EqualTo failed. Expected:<{0}>, Actual:<{1}> ({2})", expected, actual, message);
+            var expectedMsg = string.Format("Is.EqualTo failed. Expected:<{0} [{2}]>, Actual:<{1} [{2}]> ({3})", expected, actual, actual.GetType().Name, message);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
             Debug.WriteLine(ex.Message);
         }
@@ -110,7 +110,7 @@ namespace Atrico.Lib.Assertions.Test
             var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Is().Not().EqualTo(expected)));
 
             // Assert
-            var expectedMsg = string.Format("Is.Not.EqualTo failed. Expected:<{0}>, Actual:<{1}>", expected, actual);
+            var expectedMsg = string.Format("Is.Not.EqualTo failed. Expected:<{0} [{2}]>, Actual:<{1} [{2}]>", expected, actual, actual.GetType().Name);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
             Debug.WriteLine(ex.Message);
         }

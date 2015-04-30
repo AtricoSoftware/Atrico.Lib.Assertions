@@ -13,16 +13,12 @@ namespace Atrico.Lib.Assertions.Decorators
     public class BinaryErrorMessageDecorator : UnaryErrorMessageDecorator
     {
         private readonly object _expected;
-        private readonly string _actualFormat;
-        private readonly string _expectedFormat;
         private readonly Lazy<string> _expectedMessage;
 
         public BinaryErrorMessageDecorator(object expected, string actualFormat = null, string expectedFormat = null)
             : base(actualFormat)
         {
             _expected = expected;
-            _actualFormat = actualFormat;
-            _expectedFormat = expectedFormat;
             _expectedMessage = new Lazy<string>(() => string.Format(expectedFormat ?? "Expected:<{0}>", FormatObject(expected)));
         }
 

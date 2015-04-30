@@ -14,6 +14,8 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <releaseNotes>
+      3.2.0.0
+      EqualTo now displays type in error message
       3.1.0.0
       Predicate added to count decorator
       ValueConstraintElement base class added for convenience

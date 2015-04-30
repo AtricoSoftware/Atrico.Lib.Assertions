@@ -3,6 +3,7 @@ using System.Text;
 using Atrico.Lib.Assertions.Constraints;
 using Atrico.Lib.Assertions.Elements;
 using Atrico.Lib.Testing.NUnitAttributes;
+using NUnit.Framework.Constraints;
 
 namespace Atrico.Lib.Assertions.Test
 {
@@ -21,7 +22,7 @@ namespace Atrico.Lib.Assertions.Test
             var msg = constraint.ErrorMessage;
 
             // Assert
-            var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>", expected, actual);
+            var expectedMsg = string.Format("Expected:<{0} [{2}]>, Actual:<{1} [{2}]>", expected, actual, actual.GetType().Name);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, msg);
         }
 
@@ -69,7 +70,7 @@ namespace Atrico.Lib.Assertions.Test
             var msg = constraint.ErrorMessage;
 
             // Assert
-            var expectedMsg = string.Format("Expected:<{0}>, Actual:<{1}>", expected, actual);
+            var expectedMsg = string.Format("Expected:<{0} [String]>, Actual:<{1} [String]>", expected, actual);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, msg);
         }
 

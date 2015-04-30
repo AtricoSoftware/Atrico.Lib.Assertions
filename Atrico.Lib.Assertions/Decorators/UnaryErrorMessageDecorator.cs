@@ -27,23 +27,26 @@ namespace Atrico.Lib.Assertions.Decorators
             return string.Format(_actualFormat, FormatObject(actual));
         }
 
-        internal static string FormatObject(object obj)
+        protected virtual string FormatObject(object obj)
         {
+            // Null
             if (ReferenceEquals(obj, null))
             {
                 return "null";
             }
+            // Collection
             var enumerable = obj as IEnumerable;
             if (enumerable != null && !(obj is string))
             {
                 return enumerable.ToCollectionString();
             }
+            // Collection with highlights
             var collectionWithHighlights = obj as CollectionWithHighlights;
             if (collectionWithHighlights != null)
             {
                 return collectionWithHighlights.Collection.ToCollectionString(collectionWithHighlights.Highlights);
             }
-            return obj.ToString();
+            return string.Format(obj.ToString());
         }
     }
 }

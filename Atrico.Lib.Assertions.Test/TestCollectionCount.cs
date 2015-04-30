@@ -49,8 +49,7 @@ namespace Atrico.Lib.Assertions.Test
             var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().EqualTo(expected)));
 
             // Assert
-            var expectedMsg = string.Format("Count.Is.EqualTo failed. Expected:<{0}>, Actual:<{1}>", expected,
-                actual.Length);
+            var expectedMsg = string.Format("Count.Is.EqualTo failed. Expected:<{0} [{2}]>, Actual:<{1} [{2}]>", expected, actual.Length, expected.GetType().Name);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
             Debug.WriteLine(ex.Message);
         }
@@ -94,8 +93,7 @@ namespace Atrico.Lib.Assertions.Test
             var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().Not().EqualTo(expected)));
 
             // Assert
-            var expectedMsg = string.Format("Count.Is.Not.EqualTo failed. Expected:<{0}>, Actual:<{1}>", expected,
-                actual.Length);
+            var expectedMsg = string.Format("Count.Is.Not.EqualTo failed. Expected:<{0} [{2}]>, Actual:<{1} [{2}]>", expected, actual.Length, expected.GetType().Name);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
             Debug.WriteLine(ex.Message);
         }
@@ -150,8 +148,8 @@ namespace Atrico.Lib.Assertions.Test
             // Arrange
             var actual = new[] {1, 2, 3, 4};
             const int expected = 2;
-            var constraintTrue = Value.Of(actual).Count(i=>i<=2).Is().EqualTo(expected);
-            var constraintFalse = Value.Of(actual).Count(i=>i<=2).Is().EqualTo(expected + 1);
+            var constraintTrue = Value.Of(actual).Count(i => i <= 2).Is().EqualTo(expected);
+            var constraintFalse = Value.Of(actual).Count(i => i <= 2).Is().EqualTo(expected + 1);
 
             // Act
             var resultTrue = constraintTrue.Check();

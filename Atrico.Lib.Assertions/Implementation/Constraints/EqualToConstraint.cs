@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Atrico.Lib.Assertions.Constraints;
+using Atrico.Lib.Assertions.Decorators;
 
 namespace Atrico.Lib.Assertions.Implementation.Constraints
 {
-    internal sealed class EqualToConstraint<T> : BinaryConstraint<T>
+    internal sealed class EqualToConstraint<T> : Constraint<T>
     {
         private readonly object _expected;
         private readonly EqualsObjectDelegate<T> _comparer;
@@ -16,7 +17,7 @@ namespace Atrico.Lib.Assertions.Implementation.Constraints
         }
 
         public EqualToConstraint(Decorator decorator, object expected, EqualsObjectDelegate<T> comparer)
-            : base(decorator, expected)
+            : base(decorator.Append(new BinaryErrorMessageWithTypeDecorator(expected)))
         {
             _expected = expected;
             _comparer = comparer;
