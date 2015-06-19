@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using Atrico.Lib.Assertions.Elements;
 using Atrico.Lib.Assertions.Test._Helpers;
-using Atrico.Lib.Testing.NUnitAttributes;
+using Atrico.Lib.Testing.TestAttributes.NUnit;
 
 namespace Atrico.Lib.Assertions.Test.Elements
 {

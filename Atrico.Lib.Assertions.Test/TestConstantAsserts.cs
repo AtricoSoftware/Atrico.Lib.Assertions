@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Atrico.Lib.Testing;
-using Atrico.Lib.Testing.NUnitAttributes;
+using Atrico.Lib.Testing.TestAttributes.NUnit;
 
 namespace Atrico.Lib.Assertions.Test
 {

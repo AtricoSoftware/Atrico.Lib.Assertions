@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Atrico.Lib.Assertions.Constraints;
 using Atrico.Lib.Assertions.Elements;
 using Atrico.Lib.Testing;
-using Atrico.Lib.Testing.NUnitAttributes;
+using Atrico.Lib.Testing.TestAttributes.NUnit;
 
 namespace Atrico.Lib.Assertions.Test
 {
