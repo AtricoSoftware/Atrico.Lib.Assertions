@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -56,7 +57,10 @@ namespace Atrico.Lib.Assertions
             }
             if (message != null)
             {
-                text.AppendFormat(" ({0})", string.Format(message, args));
+                text.Append(" (");
+                    // Handle single curly braces innon-formatted message
+                text.Append(args.Any() ? string.Format(message, args) : message);
+                text.Append(')');
             }
             throw new AssertFailedException(text.ToString(), innerException);
         }

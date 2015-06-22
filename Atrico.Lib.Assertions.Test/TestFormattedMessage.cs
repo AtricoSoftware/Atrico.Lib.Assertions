@@ -22,5 +22,19 @@ namespace Atrico.Lib.Assertions.Test
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
             Debug.WriteLine(ex.Message);
         }
+
+        [Test]
+        public void TestMessageContainingCurlyBrace()
+        {
+            // Arrange
+
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(false).Is().True(), "Containing {curly braces}"));
+
+            // Assert
+            var expectedMsg = string.Format("Is.True failed. (Containing {{curly braces}})");
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(expectedMsg, ex.Message);
+            Debug.WriteLine(ex.Message);
+        }
     }
 }
