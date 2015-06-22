@@ -56,7 +56,7 @@ namespace Atrico.Lib.Assertions.Test
         public void TestCollectionObjectEqualToArray()
         {
             // Arrange
-            var actual = new CustomObject(new[] {1, 2, 3, 4});
+            var actual = new CustomObjectEnumerableT(new[] {1, 2, 3, 4});
             var expected = new[] {1, 2, 3, 4};
 
             // Act
@@ -65,12 +65,24 @@ namespace Atrico.Lib.Assertions.Test
             // Assert
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
         }
+        [Test]
+        public void TestNonTypedCollectionObject()
+        {
+            // Arrange
+            var actual = new CustomObjectEnumerable(new[] {1, 2, 3, 4});
 
-        private class CustomObject : IEnumerable<int>
+            // Act
+            var ex = Catch.Exception(() => Assert.That(Value.Of(actual).Count().Is().EqualTo(4)));
+
+            // Assert
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.IsNull(ex);
+        }
+
+        private class CustomObjectEnumerableT : IEnumerable<int>
         {
             private readonly List<int> _list;
 
-            public CustomObject(IEnumerable<int> ints)
+            public CustomObjectEnumerableT(IEnumerable<int> ints)
             {
                 _list = new List<int>(ints);
             }
@@ -83,6 +95,21 @@ namespace Atrico.Lib.Assertions.Test
             IEnumerator IEnumerable.GetEnumerator()
             {
                 return GetEnumerator();
+            }
+        }
+
+        private class CustomObjectEnumerable : IEnumerable
+        {
+            private readonly ArrayList _list;
+
+            public CustomObjectEnumerable(ICollection values)
+            {
+                _list = new ArrayList(values);
+            }
+
+            public IEnumerator GetEnumerator()
+            {
+                return _list.GetEnumerator();
             }
         }
     }
