@@ -14,6 +14,8 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <releaseNotes>
+      3.3.0.0
+      Multiple .net versions
       Messages without formatting (no args) can now contain {}
       Collection asserts can use IEnumerable as well as IEnumerable<>
       3.2.4.0
