@@ -17,7 +17,7 @@
       3.3.0.0
       Multiple .net versions
       Messages without formatting (no args) can now contain {}
-      Collection asserts can use IEnumerable as well as IEnumerable<>
+      Collection asserts can use IEnumerable as well as IEnumerable
       3.2.4.0
       Update common lib
       3.2.3.0
@@ -56,7 +56,9 @@
     </releaseNotes>
   </metadata>
   <files>
-    <file src="bin\Release\$id$.*" target="lib\net45" />
+    <file src="bin\net45\$id$.*" target="lib\net45" />
+    <file src="bin\net451\$id$.*" target="lib\net451" />
+    <file src="bin\net452\$id$.*" target="lib\net452" />
     <file src="..\..\License.txt" target="docs" />
   </files>
 </package>
