@@ -58,7 +58,7 @@ namespace Atrico.Lib.Assertions
             if (message != null)
             {
                 text.Append(" (");
-                    // Handle single curly braces innon-formatted message
+                // Handle single curly braces in non-formatted message
                 text.Append(args.Any() ? string.Format(message, args) : message);
                 text.Append(')');
             }
