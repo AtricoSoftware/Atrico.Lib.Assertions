@@ -5,7 +5,7 @@ using Atrico.Lib.Testing;
 using Atrico.Lib.Testing.TestAttributes.NUnit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Atrico.Lib.Assertions.Test
+namespace Atrico.Lib.Assertions.Tests
 {
     [TestFixture]
     public class TestDoesImplementInterface

@@ -3,9 +3,8 @@ using System.Text;
 using Atrico.Lib.Assertions.Constraints;
 using Atrico.Lib.Assertions.Elements;
 using Atrico.Lib.Testing.TestAttributes.NUnit;
-using NUnit.Framework.Constraints;
 
-namespace Atrico.Lib.Assertions.Test
+namespace Atrico.Lib.Assertions.Tests
 {
     [TestFixture]
     public class TestCreateErrorMessage

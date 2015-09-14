@@ -8,7 +8,7 @@ namespace Atrico.Lib.Assertions
     {
         protected virtual string CreateElementName()
         {
-            return new EverythingBefore(GetType().Name, ElementNameBase) + CreateElementNameArguments.ToCollectionString(CreateElementNameBraces, CreateElementNameBracesIfNoArguments);
+            return new EverythingBefore(GetType().Name, ElementNameBase) + CreateElementNameArguments.ToCollectionString(CreateElementOpenBrace, CreateElementCloseBrace, ",", CreateElementNameBracesIfNoArguments);
         }
 
         protected virtual IEnumerable CreateElementNameArguments
@@ -16,9 +16,13 @@ namespace Atrico.Lib.Assertions
             get { return new object[] {}; }
         }
 
-        protected virtual string CreateElementNameBraces
+        protected virtual string CreateElementOpenBrace
         {
-            get { return "()"; }
+            get { return "("; }
+        }
+        protected virtual string CreateElementCloseBrace
+        {
+            get { return ")"; }
         }
 
         protected virtual bool CreateElementNameBracesIfNoArguments

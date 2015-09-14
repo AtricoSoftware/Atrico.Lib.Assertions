@@ -1,7 +1,7 @@
 ﻿using System;
 using Atrico.Lib.Assertions.Decorators;
 
-namespace Atrico.Lib.Assertions.Test._Helpers
+namespace Atrico.Lib.Assertions.Tests._Helpers
 {
     public static class DummyExtension
     {

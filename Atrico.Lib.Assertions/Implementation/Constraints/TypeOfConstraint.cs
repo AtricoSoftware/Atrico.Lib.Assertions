@@ -24,9 +24,14 @@ namespace Atrico.Lib.Assertions.Implementation.Constraints
             get { return new[] {_expected}; }
         }
 
-        protected override string CreateElementNameBraces
+        protected override string CreateElementOpenBrace
         {
-            get { return "<>"; }
+            get { return "<"; }
+        }
+
+        protected override string CreateElementCloseBrace
+        {
+            get { return ">"; }
         }
 
         private class TypeOfErrorMessageDecorator : NameLessDecorator

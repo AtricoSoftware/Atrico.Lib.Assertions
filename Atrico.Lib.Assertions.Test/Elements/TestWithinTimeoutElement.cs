@@ -2,10 +2,10 @@
 using System.Diagnostics;
 using System.Threading;
 using Atrico.Lib.Assertions.Elements;
-using Atrico.Lib.Assertions.Test._Helpers;
+using Atrico.Lib.Assertions.Tests._Helpers;
 using Atrico.Lib.Testing.TestAttributes.NUnit;
 
-namespace Atrico.Lib.Assertions.Test.Elements
+namespace Atrico.Lib.Assertions.Tests.Elements
 {
     [TestFixture]
     public class TestWithinTimeoutElement

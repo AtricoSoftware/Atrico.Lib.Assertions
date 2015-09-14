@@ -9,8 +9,8 @@
     <ProjectGuid>{D062D9A9-405A-43B4-AAB7-ED3C69025577}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Atrico.Lib.Assertions.Test</RootNamespace>
-    <AssemblyName>Atrico.Lib.Assertions.Test</AssemblyName>
+    <RootNamespace>Atrico.Lib.Assertions.Tests</RootNamespace>
+    <AssemblyName>Atrico.Lib.Assertions.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
