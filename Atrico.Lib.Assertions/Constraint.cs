@@ -1,5 +1,5 @@
 using Atrico.Lib.Assertions.Decorators;
-using Atrico.Lib.Assertions.Implementation.Decorators;
+using Atrico.Lib.Assertions.zzImplementation.Decorators;
 using Atrico.Lib.Common;
 
 namespace Atrico.Lib.Assertions

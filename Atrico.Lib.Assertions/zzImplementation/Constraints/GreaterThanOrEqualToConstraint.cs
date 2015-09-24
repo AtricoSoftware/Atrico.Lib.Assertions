@@ -1,0 +1,26 @@
+using System;
+using System.Collections;
+
+namespace Atrico.Lib.Assertions.zzImplementation.Constraints
+{
+    internal sealed class GreaterThanOrEqualToConstraint<T> : UnaryConstraint<T>
+    {
+        private readonly IComparable<T> _expected;
+
+        public GreaterThanOrEqualToConstraint(Decorator decorator, IComparable<T> expected)
+            : base(decorator)
+        {
+            _expected = expected;
+        }
+
+        protected override bool TestImpl(T actual)
+        {
+            return _expected.CompareTo(actual) <= 0;
+        }
+
+        protected override IEnumerable CreateElementNameArguments
+        {
+            get { return new[] {_expected}; }
+        }
+    }
+}

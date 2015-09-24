@@ -1,5 +1,5 @@
 ﻿using System;
-using Atrico.Lib.Assertions.Implementation.Constraints;
+using Atrico.Lib.Assertions.zzImplementation.Constraints;
 
 namespace Atrico.Lib.Assertions.Constraints
 {

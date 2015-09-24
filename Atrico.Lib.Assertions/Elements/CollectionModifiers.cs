@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Atrico.Lib.Assertions.Implementation.Elements;
+using Atrico.Lib.Assertions.zzImplementation.Elements;
 
 namespace Atrico.Lib.Assertions.Elements
 {

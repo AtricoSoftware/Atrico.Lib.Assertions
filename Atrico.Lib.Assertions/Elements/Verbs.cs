@@ -1,4 +1,4 @@
-﻿using Atrico.Lib.Assertions.Implementation.Elements;
+﻿using Atrico.Lib.Assertions.zzImplementation.Elements;
 
 namespace Atrico.Lib.Assertions.Elements
 {

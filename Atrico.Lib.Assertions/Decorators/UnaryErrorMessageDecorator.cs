@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using Atrico.Lib.Assertions.Implementation;
+using Atrico.Lib.Assertions.zzImplementation;
 using Atrico.Lib.Common.Collections;
 
 // ReSharper disable once CheckNamespace
